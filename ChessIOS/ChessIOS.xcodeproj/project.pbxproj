@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D1B9743519B0ADA50044BD69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9743419B0ADA50044BD69 /* Foundation.framework */; };
+		D1B9743719B0ADA50044BD69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9743619B0ADA50044BD69 /* CoreGraphics.framework */; };
+		D1B9743919B0ADA50044BD69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9743819B0ADA50044BD69 /* UIKit.framework */; };
+		D1B9743F19B0ADA50044BD69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B9743D19B0ADA50044BD69 /* InfoPlist.strings */; };
+		D1B9744119B0ADA50044BD69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9744019B0ADA50044BD69 /* main.m */; };
+		D1B9744519B0ADA50044BD69 /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9744419B0ADA50044BD69 /* PMAppDelegate.m */; };
+		D1B9744819B0ADA50044BD69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B9744619B0ADA50044BD69 /* Main.storyboard */; };
+		D1B9744B19B0ADA50044BD69 /* PMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9744A19B0ADA50044BD69 /* PMViewController.m */; };
+		D1B9744D19B0ADA50044BD69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B9744C19B0ADA50044BD69 /* Images.xcassets */; };
+		D1B9745419B0ADA50044BD69 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9745319B0ADA50044BD69 /* XCTest.framework */; };
+		D1B9745519B0ADA50044BD69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9743419B0ADA50044BD69 /* Foundation.framework */; };
+		D1B9745619B0ADA50044BD69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9743819B0ADA50044BD69 /* UIKit.framework */; };
+		D1B9745E19B0ADA50044BD69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B9745C19B0ADA50044BD69 /* InfoPlist.strings */; };
+		D1B9746019B0ADA50044BD69 /* ChessIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9745F19B0ADA50044BD69 /* ChessIOSTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1B9745719B0ADA50044BD69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1B9742919B0ADA50044BD69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1B9743019B0ADA50044BD69;
+			remoteInfo = ChessIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D1B9743119B0ADA50044BD69 /* ChessIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B9743419B0ADA50044BD69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D1B9743619B0ADA50044BD69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D1B9743819B0ADA50044BD69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D1B9743C19B0ADA50044BD69 /* ChessIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessIOS-Info.plist"; sourceTree = "<group>"; };
+		D1B9743E19B0ADA50044BD69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1B9744019B0ADA50044BD69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D1B9744219B0ADA50044BD69 /* ChessIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessIOS-Prefix.pch"; sourceTree = "<group>"; };
+		D1B9744319B0ADA50044BD69 /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
+		D1B9744419B0ADA50044BD69 /* PMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMAppDelegate.m; sourceTree = "<group>"; };
+		D1B9744719B0ADA50044BD69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1B9744919B0ADA50044BD69 /* PMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMViewController.h; sourceTree = "<group>"; };
+		D1B9744A19B0ADA50044BD69 /* PMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMViewController.m; sourceTree = "<group>"; };
+		D1B9744C19B0ADA50044BD69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D1B9745219B0ADA50044BD69 /* ChessIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B9745319B0ADA50044BD69 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D1B9745B19B0ADA50044BD69 /* ChessIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessIOSTests-Info.plist"; sourceTree = "<group>"; };
+		D1B9745D19B0ADA50044BD69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1B9745F19B0ADA50044BD69 /* ChessIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessIOSTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1B9742E19B0ADA50044BD69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9743719B0ADA50044BD69 /* CoreGraphics.framework in Frameworks */,
+				D1B9743919B0ADA50044BD69 /* UIKit.framework in Frameworks */,
+				D1B9743519B0ADA50044BD69 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B9744F19B0ADA50044BD69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9745419B0ADA50044BD69 /* XCTest.framework in Frameworks */,
+				D1B9745619B0ADA50044BD69 /* UIKit.framework in Frameworks */,
+				D1B9745519B0ADA50044BD69 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1B9742819B0ADA50044BD69 = {
+			isa = PBXGroup;
+			children = (
+				D1B9743A19B0ADA50044BD69 /* ChessIOS */,
+				D1B9745919B0ADA50044BD69 /* ChessIOSTests */,
+				D1B9743319B0ADA50044BD69 /* Frameworks */,
+				D1B9743219B0ADA50044BD69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1B9743219B0ADA50044BD69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9743119B0ADA50044BD69 /* ChessIOS.app */,
+				D1B9745219B0ADA50044BD69 /* ChessIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1B9743319B0ADA50044BD69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9743419B0ADA50044BD69 /* Foundation.framework */,
+				D1B9743619B0ADA50044BD69 /* CoreGraphics.framework */,
+				D1B9743819B0ADA50044BD69 /* UIKit.framework */,
+				D1B9745319B0ADA50044BD69 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1B9743A19B0ADA50044BD69 /* ChessIOS */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9744319B0ADA50044BD69 /* PMAppDelegate.h */,
+				D1B9744419B0ADA50044BD69 /* PMAppDelegate.m */,
+				D1B9744619B0ADA50044BD69 /* Main.storyboard */,
+				D1B9744919B0ADA50044BD69 /* PMViewController.h */,
+				D1B9744A19B0ADA50044BD69 /* PMViewController.m */,
+				D1B9744C19B0ADA50044BD69 /* Images.xcassets */,
+				D1B9743B19B0ADA50044BD69 /* Supporting Files */,
+			);
+			path = ChessIOS;
+			sourceTree = "<group>";
+		};
+		D1B9743B19B0ADA50044BD69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9743C19B0ADA50044BD69 /* ChessIOS-Info.plist */,
+				D1B9743D19B0ADA50044BD69 /* InfoPlist.strings */,
+				D1B9744019B0ADA50044BD69 /* main.m */,
+				D1B9744219B0ADA50044BD69 /* ChessIOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1B9745919B0ADA50044BD69 /* ChessIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9745F19B0ADA50044BD69 /* ChessIOSTests.m */,
+				D1B9745A19B0ADA50044BD69 /* Supporting Files */,
+			);
+			path = ChessIOSTests;
+			sourceTree = "<group>";
+		};
+		D1B9745A19B0ADA50044BD69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9745B19B0ADA50044BD69 /* ChessIOSTests-Info.plist */,
+				D1B9745C19B0ADA50044BD69 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1B9743019B0ADA50044BD69 /* ChessIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B9746319B0ADA50044BD69 /* Build configuration list for PBXNativeTarget "ChessIOS" */;
+			buildPhases = (
+				D1B9742D19B0ADA50044BD69 /* Sources */,
+				D1B9742E19B0ADA50044BD69 /* Frameworks */,
+				D1B9742F19B0ADA50044BD69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChessIOS;
+			productName = ChessIOS;
+			productReference = D1B9743119B0ADA50044BD69 /* ChessIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1B9745119B0ADA50044BD69 /* ChessIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B9746619B0ADA50044BD69 /* Build configuration list for PBXNativeTarget "ChessIOSTests" */;
+			buildPhases = (
+				D1B9744E19B0ADA50044BD69 /* Sources */,
+				D1B9744F19B0ADA50044BD69 /* Frameworks */,
+				D1B9745019B0ADA50044BD69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1B9745819B0ADA50044BD69 /* PBXTargetDependency */,
+			);
+			name = ChessIOSTests;
+			productName = ChessIOSTests;
+			productReference = D1B9745219B0ADA50044BD69 /* ChessIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1B9742919B0ADA50044BD69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PM;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = PMMedia;
+				TargetAttributes = {
+					D1B9745119B0ADA50044BD69 = {
+						TestTargetID = D1B9743019B0ADA50044BD69;
+					};
+				};
+			};
+			buildConfigurationList = D1B9742C19B0ADA50044BD69 /* Build configuration list for PBXProject "ChessIOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1B9742819B0ADA50044BD69;
+			productRefGroup = D1B9743219B0ADA50044BD69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1B9743019B0ADA50044BD69 /* ChessIOS */,
+				D1B9745119B0ADA50044BD69 /* ChessIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1B9742F19B0ADA50044BD69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9744D19B0ADA50044BD69 /* Images.xcassets in Resources */,
+				D1B9743F19B0ADA50044BD69 /* InfoPlist.strings in Resources */,
+				D1B9744819B0ADA50044BD69 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B9745019B0ADA50044BD69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9745E19B0ADA50044BD69 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1B9742D19B0ADA50044BD69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9744119B0ADA50044BD69 /* main.m in Sources */,
+				D1B9744B19B0ADA50044BD69 /* PMViewController.m in Sources */,
+				D1B9744519B0ADA50044BD69 /* PMAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B9744E19B0ADA50044BD69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9746019B0ADA50044BD69 /* ChessIOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1B9745819B0ADA50044BD69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1B9743019B0ADA50044BD69 /* ChessIOS */;
+			targetProxy = D1B9745719B0ADA50044BD69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1B9743D19B0ADA50044BD69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1B9743E19B0ADA50044BD69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D1B9744619B0ADA50044BD69 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1B9744719B0ADA50044BD69 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1B9745C19B0ADA50044BD69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1B9745D19B0ADA50044BD69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1B9746119B0ADA50044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D1B9746219B0ADA50044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1B9746419B0ADA50044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessIOS/ChessIOS-Prefix.pch";
+				INFOPLIST_FILE = "ChessIOS/ChessIOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D1B9746519B0ADA50044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessIOS/ChessIOS-Prefix.pch";
+				INFOPLIST_FILE = "ChessIOS/ChessIOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D1B9746719B0ADA50044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChessIOS.app/ChessIOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessIOS/ChessIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChessIOSTests/ChessIOSTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D1B9746819B0ADA50044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChessIOS.app/ChessIOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessIOS/ChessIOS-Prefix.pch";
+				INFOPLIST_FILE = "ChessIOSTests/ChessIOSTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1B9742C19B0ADA50044BD69 /* Build configuration list for PBXProject "ChessIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9746119B0ADA50044BD69 /* Debug */,
+				D1B9746219B0ADA50044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1B9746319B0ADA50044BD69 /* Build configuration list for PBXNativeTarget "ChessIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9746419B0ADA50044BD69 /* Debug */,
+				D1B9746519B0ADA50044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D1B9746619B0ADA50044BD69 /* Build configuration list for PBXNativeTarget "ChessIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9746719B0ADA50044BD69 /* Debug */,
+				D1B9746819B0ADA50044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1B9742919B0ADA50044BD69 /* Project object */;
+}
