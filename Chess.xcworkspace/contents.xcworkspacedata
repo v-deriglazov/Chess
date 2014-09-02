@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:ChessEngine/ChessEngine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ChessMAC/ChessMAC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ChessIOS/ChessIOS.xcodeproj">
+   </FileRef>
+</Workspace>

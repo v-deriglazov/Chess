@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D124DE8B19B45268000CCCCD /* VDBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DE8919B45268000CCCCD /* VDBoard.h */; };
+		D124DE8C19B45268000CCCCD /* VDBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DE8A19B45268000CCCCD /* VDBoard.m */; };
+		D124DED619B468AC000CCCCD /* VDGame.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DED419B468AC000CCCCD /* VDGame.h */; };
+		D124DED719B468AC000CCCCD /* VDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DED519B468AC000CCCCD /* VDGame.m */; };
+		D124DEDA19B46A41000CCCCD /* VDHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DED819B46A41000CCCCD /* VDHistory.h */; };
+		D124DEDB19B46A41000CCCCD /* VDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DED919B46A41000CCCCD /* VDHistory.m */; };
+		D124DEE819B46FC5000CCCCD /* ChessEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DEDC19B46E68000CCCCD /* ChessEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1B9750219B0AE800044BD69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9750119B0AE800044BD69 /* Cocoa.framework */; };
+		D1B9751319B0AE800044BD69 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9751219B0AE800044BD69 /* XCTest.framework */; };
+		D1B9751419B0AE800044BD69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9750119B0AE800044BD69 /* Cocoa.framework */; };
+		D1B9751719B0AE800044BD69 /* libChessEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B974FE19B0AE800044BD69 /* libChessEngine.a */; };
+		D1B9751D19B0AE800044BD69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B9751B19B0AE800044BD69 /* InfoPlist.strings */; };
+		D1B9751F19B0AE800044BD69 /* ChessEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9751E19B0AE800044BD69 /* ChessEngineTests.m */; };
+		D1B9752C19B0B4050044BD69 /* VDFigure.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9752A19B0B4050044BD69 /* VDFigure.h */; };
+		D1B9752D19B0B4050044BD69 /* VDFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9752B19B0B4050044BD69 /* VDFigure.m */; };
+		D1B9753019B0B4180044BD69 /* VDField.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9752E19B0B4180044BD69 /* VDField.h */; };
+		D1B9753119B0B4180044BD69 /* VDField.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9752F19B0B4180044BD69 /* VDField.m */; };
+		D1B9753419B0D9200044BD69 /* VDKing.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9753219B0D9200044BD69 /* VDKing.h */; };
+		D1B9753519B0D9200044BD69 /* VDKing.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9753319B0D9200044BD69 /* VDKing.m */; };
+		D1B9753819B0D9320044BD69 /* VDQueen.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9753619B0D9320044BD69 /* VDQueen.h */; };
+		D1B9753919B0D9320044BD69 /* VDQueen.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9753719B0D9320044BD69 /* VDQueen.m */; };
+		D1B9753C19B0D9420044BD69 /* VDRook.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9753A19B0D9420044BD69 /* VDRook.h */; };
+		D1B9753D19B0D9420044BD69 /* VDRook.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9753B19B0D9420044BD69 /* VDRook.m */; };
+		D1B9754019B0D9530044BD69 /* VDBishop.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9753E19B0D9530044BD69 /* VDBishop.h */; };
+		D1B9754119B0D9530044BD69 /* VDBishop.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9753F19B0D9530044BD69 /* VDBishop.m */; };
+		D1B9754419B0D95E0044BD69 /* VDKnight.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9754219B0D95E0044BD69 /* VDKnight.h */; };
+		D1B9754519B0D95E0044BD69 /* VDKnight.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9754319B0D95E0044BD69 /* VDKnight.m */; };
+		D1B9754819B0D96B0044BD69 /* VDPawn.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B9754619B0D96B0044BD69 /* VDPawn.h */; };
+		D1B9754919B0D96B0044BD69 /* VDPawn.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B9754719B0D96B0044BD69 /* VDPawn.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1B9751519B0AE800044BD69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1B974F619B0AE800044BD69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1B974FD19B0AE800044BD69;
+			remoteInfo = ChessEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D124DE8919B45268000CCCCD /* VDBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDBoard.h; sourceTree = "<group>"; };
+		D124DE8A19B45268000CCCCD /* VDBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDBoard.m; sourceTree = "<group>"; };
+		D124DED419B468AC000CCCCD /* VDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDGame.h; sourceTree = "<group>"; };
+		D124DED519B468AC000CCCCD /* VDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDGame.m; sourceTree = "<group>"; };
+		D124DED819B46A41000CCCCD /* VDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDHistory.h; sourceTree = "<group>"; };
+		D124DED919B46A41000CCCCD /* VDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDHistory.m; sourceTree = "<group>"; };
+		D124DEDC19B46E68000CCCCD /* ChessEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessEngine.h; sourceTree = "<group>"; };
+		D1B974FE19B0AE800044BD69 /* libChessEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B9750119B0AE800044BD69 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D1B9750419B0AE800044BD69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D1B9750519B0AE800044BD69 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D1B9750619B0AE800044BD69 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D1B9750919B0AE800044BD69 /* ChessEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessEngine-Prefix.pch"; sourceTree = "<group>"; };
+		D1B9751119B0AE800044BD69 /* ChessEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B9751219B0AE800044BD69 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D1B9751A19B0AE800044BD69 /* ChessEngineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessEngineTests-Info.plist"; sourceTree = "<group>"; };
+		D1B9751C19B0AE800044BD69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1B9751E19B0AE800044BD69 /* ChessEngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessEngineTests.m; sourceTree = "<group>"; };
+		D1B9752A19B0B4050044BD69 /* VDFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDFigure.h; sourceTree = "<group>"; };
+		D1B9752B19B0B4050044BD69 /* VDFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDFigure.m; sourceTree = "<group>"; };
+		D1B9752E19B0B4180044BD69 /* VDField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDField.h; sourceTree = "<group>"; };
+		D1B9752F19B0B4180044BD69 /* VDField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDField.m; sourceTree = "<group>"; };
+		D1B9753219B0D9200044BD69 /* VDKing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDKing.h; sourceTree = "<group>"; };
+		D1B9753319B0D9200044BD69 /* VDKing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDKing.m; sourceTree = "<group>"; };
+		D1B9753619B0D9320044BD69 /* VDQueen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDQueen.h; sourceTree = "<group>"; };
+		D1B9753719B0D9320044BD69 /* VDQueen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDQueen.m; sourceTree = "<group>"; };
+		D1B9753A19B0D9420044BD69 /* VDRook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDRook.h; sourceTree = "<group>"; };
+		D1B9753B19B0D9420044BD69 /* VDRook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDRook.m; sourceTree = "<group>"; };
+		D1B9753E19B0D9530044BD69 /* VDBishop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDBishop.h; sourceTree = "<group>"; };
+		D1B9753F19B0D9530044BD69 /* VDBishop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDBishop.m; sourceTree = "<group>"; };
+		D1B9754219B0D95E0044BD69 /* VDKnight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDKnight.h; sourceTree = "<group>"; };
+		D1B9754319B0D95E0044BD69 /* VDKnight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDKnight.m; sourceTree = "<group>"; };
+		D1B9754619B0D96B0044BD69 /* VDPawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPawn.h; sourceTree = "<group>"; };
+		D1B9754719B0D96B0044BD69 /* VDPawn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPawn.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1B974FB19B0AE800044BD69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9750219B0AE800044BD69 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B9750E19B0AE800044BD69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9751419B0AE800044BD69 /* Cocoa.framework in Frameworks */,
+				D1B9751319B0AE800044BD69 /* XCTest.framework in Frameworks */,
+				D1B9751719B0AE800044BD69 /* libChessEngine.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D124DE8819B45217000CCCCD /* Figures */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9752A19B0B4050044BD69 /* VDFigure.h */,
+				D1B9752B19B0B4050044BD69 /* VDFigure.m */,
+				D1B9753219B0D9200044BD69 /* VDKing.h */,
+				D1B9753319B0D9200044BD69 /* VDKing.m */,
+				D1B9753619B0D9320044BD69 /* VDQueen.h */,
+				D1B9753719B0D9320044BD69 /* VDQueen.m */,
+				D1B9753A19B0D9420044BD69 /* VDRook.h */,
+				D1B9753B19B0D9420044BD69 /* VDRook.m */,
+				D1B9753E19B0D9530044BD69 /* VDBishop.h */,
+				D1B9753F19B0D9530044BD69 /* VDBishop.m */,
+				D1B9754219B0D95E0044BD69 /* VDKnight.h */,
+				D1B9754319B0D95E0044BD69 /* VDKnight.m */,
+				D1B9754619B0D96B0044BD69 /* VDPawn.h */,
+				D1B9754719B0D96B0044BD69 /* VDPawn.m */,
+			);
+			name = Figures;
+			sourceTree = "<group>";
+		};
+		D1B974F519B0AE800044BD69 = {
+			isa = PBXGroup;
+			children = (
+				D1B9750719B0AE800044BD69 /* ChessEngine */,
+				D1B9751819B0AE800044BD69 /* ChessEngineTests */,
+				D1B9750019B0AE800044BD69 /* Frameworks */,
+				D1B974FF19B0AE800044BD69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1B974FF19B0AE800044BD69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1B974FE19B0AE800044BD69 /* libChessEngine.a */,
+				D1B9751119B0AE800044BD69 /* ChessEngineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1B9750019B0AE800044BD69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9750119B0AE800044BD69 /* Cocoa.framework */,
+				D1B9751219B0AE800044BD69 /* XCTest.framework */,
+				D1B9750319B0AE800044BD69 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1B9750319B0AE800044BD69 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9750419B0AE800044BD69 /* Foundation.framework */,
+				D1B9750519B0AE800044BD69 /* CoreData.framework */,
+				D1B9750619B0AE800044BD69 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D1B9750719B0AE800044BD69 /* ChessEngine */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9750819B0AE800044BD69 /* Supporting Files */,
+				D1B9752E19B0B4180044BD69 /* VDField.h */,
+				D1B9752F19B0B4180044BD69 /* VDField.m */,
+				D124DE8919B45268000CCCCD /* VDBoard.h */,
+				D124DE8A19B45268000CCCCD /* VDBoard.m */,
+				D124DED819B46A41000CCCCD /* VDHistory.h */,
+				D124DED919B46A41000CCCCD /* VDHistory.m */,
+				D124DED419B468AC000CCCCD /* VDGame.h */,
+				D124DED519B468AC000CCCCD /* VDGame.m */,
+				D124DE8819B45217000CCCCD /* Figures */,
+			);
+			path = ChessEngine;
+			sourceTree = "<group>";
+		};
+		D1B9750819B0AE800044BD69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9750919B0AE800044BD69 /* ChessEngine-Prefix.pch */,
+				D124DEDC19B46E68000CCCCD /* ChessEngine.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1B9751819B0AE800044BD69 /* ChessEngineTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9751E19B0AE800044BD69 /* ChessEngineTests.m */,
+				D1B9751919B0AE800044BD69 /* Supporting Files */,
+			);
+			path = ChessEngineTests;
+			sourceTree = "<group>";
+		};
+		D1B9751919B0AE800044BD69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9751A19B0AE800044BD69 /* ChessEngineTests-Info.plist */,
+				D1B9751B19B0AE800044BD69 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D1B974FC19B0AE800044BD69 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEDA19B46A41000CCCCD /* VDHistory.h in Headers */,
+				D124DE8B19B45268000CCCCD /* VDBoard.h in Headers */,
+				D1B9752C19B0B4050044BD69 /* VDFigure.h in Headers */,
+				D124DEE819B46FC5000CCCCD /* ChessEngine.h in Headers */,
+				D1B9753019B0B4180044BD69 /* VDField.h in Headers */,
+				D1B9753419B0D9200044BD69 /* VDKing.h in Headers */,
+				D1B9754019B0D9530044BD69 /* VDBishop.h in Headers */,
+				D1B9753C19B0D9420044BD69 /* VDRook.h in Headers */,
+				D1B9753819B0D9320044BD69 /* VDQueen.h in Headers */,
+				D1B9754819B0D96B0044BD69 /* VDPawn.h in Headers */,
+				D124DED619B468AC000CCCCD /* VDGame.h in Headers */,
+				D1B9754419B0D95E0044BD69 /* VDKnight.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D1B974FD19B0AE800044BD69 /* ChessEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B9752219B0AE800044BD69 /* Build configuration list for PBXNativeTarget "ChessEngine" */;
+			buildPhases = (
+				D1B974FA19B0AE800044BD69 /* Sources */,
+				D1B974FB19B0AE800044BD69 /* Frameworks */,
+				D1B974FC19B0AE800044BD69 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChessEngine;
+			productName = ChessEngine;
+			productReference = D1B974FE19B0AE800044BD69 /* libChessEngine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D1B9751019B0AE800044BD69 /* ChessEngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B9752519B0AE800044BD69 /* Build configuration list for PBXNativeTarget "ChessEngineTests" */;
+			buildPhases = (
+				D1B9750D19B0AE800044BD69 /* Sources */,
+				D1B9750E19B0AE800044BD69 /* Frameworks */,
+				D1B9750F19B0AE800044BD69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1B9751619B0AE800044BD69 /* PBXTargetDependency */,
+			);
+			name = ChessEngineTests;
+			productName = ChessEngineTests;
+			productReference = D1B9751119B0AE800044BD69 /* ChessEngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1B974F619B0AE800044BD69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = PMMedia;
+			};
+			buildConfigurationList = D1B974F919B0AE800044BD69 /* Build configuration list for PBXProject "ChessEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D1B974F519B0AE800044BD69;
+			productRefGroup = D1B974FF19B0AE800044BD69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1B974FD19B0AE800044BD69 /* ChessEngine */,
+				D1B9751019B0AE800044BD69 /* ChessEngineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1B9750F19B0AE800044BD69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9751D19B0AE800044BD69 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1B974FA19B0AE800044BD69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DE8C19B45268000CCCCD /* VDBoard.m in Sources */,
+				D1B9754519B0D95E0044BD69 /* VDKnight.m in Sources */,
+				D1B9753919B0D9320044BD69 /* VDQueen.m in Sources */,
+				D124DED719B468AC000CCCCD /* VDGame.m in Sources */,
+				D124DEDB19B46A41000CCCCD /* VDHistory.m in Sources */,
+				D1B9753519B0D9200044BD69 /* VDKing.m in Sources */,
+				D1B9754919B0D96B0044BD69 /* VDPawn.m in Sources */,
+				D1B9753119B0B4180044BD69 /* VDField.m in Sources */,
+				D1B9753D19B0D9420044BD69 /* VDRook.m in Sources */,
+				D1B9754119B0D9530044BD69 /* VDBishop.m in Sources */,
+				D1B9752D19B0B4050044BD69 /* VDFigure.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B9750D19B0AE800044BD69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B9751F19B0AE800044BD69 /* ChessEngineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1B9751619B0AE800044BD69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1B974FD19B0AE800044BD69 /* ChessEngine */;
+			targetProxy = D1B9751519B0AE800044BD69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1B9751B19B0AE800044BD69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1B9751C19B0AE800044BD69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1B9752019B0AE800044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D1B9752119B0AE800044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D1B9752319B0AE800044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessEngine/ChessEngine-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D1B9752419B0AE800044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessEngine/ChessEngine-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D1B9752619B0AE800044BD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessEngine/ChessEngine-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChessEngineTests/ChessEngineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D1B9752719B0AE800044BD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessEngine/ChessEngine-Prefix.pch";
+				INFOPLIST_FILE = "ChessEngineTests/ChessEngineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1B974F919B0AE800044BD69 /* Build configuration list for PBXProject "ChessEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9752019B0AE800044BD69 /* Debug */,
+				D1B9752119B0AE800044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1B9752219B0AE800044BD69 /* Build configuration list for PBXNativeTarget "ChessEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9752319B0AE800044BD69 /* Debug */,
+				D1B9752419B0AE800044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1B9752519B0AE800044BD69 /* Build configuration list for PBXNativeTarget "ChessEngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B9752619B0AE800044BD69 /* Debug */,
+				D1B9752719B0AE800044BD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1B974F619B0AE800044BD69 /* Project object */;
+}

@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D124DE9C19B467AD000CCCCD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D124DE9B19B467AD000CCCCD /* Cocoa.framework */; };
+		D124DEA619B467AD000CCCCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D124DEA419B467AD000CCCCD /* InfoPlist.strings */; };
+		D124DEA819B467AD000CCCCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEA719B467AD000CCCCD /* main.m */; };
+		D124DEAC19B467AD000CCCCD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D124DEAA19B467AD000CCCCD /* Credits.rtf */; };
+		D124DEAF19B467AD000CCCCD /* VDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEAE19B467AD000CCCCD /* VDDocument.m */; };
+		D124DEB519B467AD000CCCCD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D124DEB319B467AD000CCCCD /* MainMenu.xib */; };
+		D124DEB719B467AD000CCCCD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D124DEB619B467AD000CCCCD /* Images.xcassets */; };
+		D124DEBE19B467AE000CCCCD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D124DEBD19B467AE000CCCCD /* XCTest.framework */; };
+		D124DEBF19B467AE000CCCCD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D124DE9B19B467AD000CCCCD /* Cocoa.framework */; };
+		D124DEC719B467AE000CCCCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D124DEC519B467AE000CCCCD /* InfoPlist.strings */; };
+		D124DEC919B467AE000CCCCD /* ChessMACTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEC819B467AE000CCCCD /* ChessMACTests.m */; };
+		D124DED319B467F4000CCCCD /* libChessEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D124DED219B467F4000CCCCD /* libChessEngine.a */; };
+		D124DEEC19B47205000CCCCD /* VDGameWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEEA19B47205000CCCCD /* VDGameWindowController.m */; };
+		D124DEED19B47205000CCCCD /* VDGameWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D124DEEB19B47205000CCCCD /* VDGameWindowController.xib */; };
+		D124DEF019B47330000CCCCD /* VDBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEEF19B47330000CCCCD /* VDBoardView.m */; };
+		D124DEF319B47347000CCCCD /* VDAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF219B47347000CCCCD /* VDAnnotationView.m */; };
+		D124DEF619B47660000CCCCD /* VDBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF519B47660000CCCCD /* VDBoardViewController.m */; };
+		D124DEF919B47825000CCCCD /* VDFigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF819B47825000CCCCD /* VDFigureView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D124DEC019B467AE000CCCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D124DE9019B467AD000CCCCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D124DE9719B467AD000CCCCD;
+			remoteInfo = ChessMAC;
+		};
+		D124DEE219B46F1A000CCCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1B974FE19B0AE800044BD69;
+			remoteInfo = ChessEngine;
+		};
+		D124DEE419B46F1A000CCCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1B9751119B0AE800044BD69;
+			remoteInfo = ChessEngineTests;
+		};
+		D124DEE619B46F34000CCCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D1B974FD19B0AE800044BD69;
+			remoteInfo = ChessEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D124DE9819B467AD000CCCCD /* ChessMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D124DE9B19B467AD000CCCCD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D124DE9E19B467AD000CCCCD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D124DE9F19B467AD000CCCCD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D124DEA019B467AD000CCCCD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D124DEA319B467AD000CCCCD /* ChessMAC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessMAC-Info.plist"; sourceTree = "<group>"; };
+		D124DEA519B467AD000CCCCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D124DEA719B467AD000CCCCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D124DEA919B467AD000CCCCD /* ChessMAC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessMAC-Prefix.pch"; sourceTree = "<group>"; };
+		D124DEAB19B467AD000CCCCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D124DEAD19B467AD000CCCCD /* VDDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VDDocument.h; sourceTree = "<group>"; };
+		D124DEAE19B467AD000CCCCD /* VDDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VDDocument.m; sourceTree = "<group>"; };
+		D124DEB419B467AD000CCCCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D124DEB619B467AD000CCCCD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D124DEBC19B467AE000CCCCD /* ChessMACTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessMACTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D124DEBD19B467AE000CCCCD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D124DEC419B467AE000CCCCD /* ChessMACTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessMACTests-Info.plist"; sourceTree = "<group>"; };
+		D124DEC619B467AE000CCCCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D124DEC819B467AE000CCCCD /* ChessMACTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessMACTests.m; sourceTree = "<group>"; };
+		D124DED219B467F4000CCCCD /* libChessEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChessEngine.a; path = "../../../../../Users/deriglazov/Library/Developer/Xcode/DerivedData/Chess-domhgfupobluwaczmcfelznnggtf/Build/Products/Debug/libChessEngine.a"; sourceTree = "<group>"; };
+		D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChessEngine.xcodeproj; path = ../ChessEngine/ChessEngine.xcodeproj; sourceTree = "<group>"; };
+		D124DEE919B47205000CCCCD /* VDGameWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDGameWindowController.h; sourceTree = "<group>"; };
+		D124DEEA19B47205000CCCCD /* VDGameWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDGameWindowController.m; sourceTree = "<group>"; };
+		D124DEEB19B47205000CCCCD /* VDGameWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VDGameWindowController.xib; sourceTree = "<group>"; };
+		D124DEEE19B47330000CCCCD /* VDBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDBoardView.h; sourceTree = "<group>"; };
+		D124DEEF19B47330000CCCCD /* VDBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDBoardView.m; sourceTree = "<group>"; };
+		D124DEF119B47347000CCCCD /* VDAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDAnnotationView.h; sourceTree = "<group>"; };
+		D124DEF219B47347000CCCCD /* VDAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDAnnotationView.m; sourceTree = "<group>"; };
+		D124DEF419B47660000CCCCD /* VDBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDBoardViewController.h; sourceTree = "<group>"; };
+		D124DEF519B47660000CCCCD /* VDBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDBoardViewController.m; sourceTree = "<group>"; };
+		D124DEF719B47825000CCCCD /* VDFigureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDFigureView.h; sourceTree = "<group>"; };
+		D124DEF819B47825000CCCCD /* VDFigureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDFigureView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D124DE9519B467AD000CCCCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DED319B467F4000CCCCD /* libChessEngine.a in Frameworks */,
+				D124DE9C19B467AD000CCCCD /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D124DEB919B467AE000CCCCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEBF19B467AE000CCCCD /* Cocoa.framework in Frameworks */,
+				D124DEBE19B467AE000CCCCD /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D124DE8F19B467AD000CCCCD = {
+			isa = PBXGroup;
+			children = (
+				D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */,
+				D124DEA119B467AD000CCCCD /* ChessMAC */,
+				D124DEC219B467AE000CCCCD /* ChessMACTests */,
+				D124DE9A19B467AD000CCCCD /* Frameworks */,
+				D124DE9919B467AD000CCCCD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D124DE9919B467AD000CCCCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D124DE9819B467AD000CCCCD /* ChessMAC.app */,
+				D124DEBC19B467AE000CCCCD /* ChessMACTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D124DE9A19B467AD000CCCCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D124DED219B467F4000CCCCD /* libChessEngine.a */,
+				D124DE9B19B467AD000CCCCD /* Cocoa.framework */,
+				D124DEBD19B467AE000CCCCD /* XCTest.framework */,
+				D124DE9D19B467AD000CCCCD /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D124DE9D19B467AD000CCCCD /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D124DE9E19B467AD000CCCCD /* AppKit.framework */,
+				D124DE9F19B467AD000CCCCD /* CoreData.framework */,
+				D124DEA019B467AD000CCCCD /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D124DEA119B467AD000CCCCD /* ChessMAC */ = {
+			isa = PBXGroup;
+			children = (
+				D124DEAD19B467AD000CCCCD /* VDDocument.h */,
+				D124DEAE19B467AD000CCCCD /* VDDocument.m */,
+				D124DEE919B47205000CCCCD /* VDGameWindowController.h */,
+				D124DEEA19B47205000CCCCD /* VDGameWindowController.m */,
+				D124DEF419B47660000CCCCD /* VDBoardViewController.h */,
+				D124DEF519B47660000CCCCD /* VDBoardViewController.m */,
+				D124DEEB19B47205000CCCCD /* VDGameWindowController.xib */,
+				D124DEB319B467AD000CCCCD /* MainMenu.xib */,
+				D124DEB619B467AD000CCCCD /* Images.xcassets */,
+				D124DEA219B467AD000CCCCD /* Supporting Files */,
+				D124DEEE19B47330000CCCCD /* VDBoardView.h */,
+				D124DEEF19B47330000CCCCD /* VDBoardView.m */,
+				D124DEF719B47825000CCCCD /* VDFigureView.h */,
+				D124DEF819B47825000CCCCD /* VDFigureView.m */,
+				D124DEF119B47347000CCCCD /* VDAnnotationView.h */,
+				D124DEF219B47347000CCCCD /* VDAnnotationView.m */,
+			);
+			path = ChessMAC;
+			sourceTree = "<group>";
+		};
+		D124DEA219B467AD000CCCCD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D124DEA319B467AD000CCCCD /* ChessMAC-Info.plist */,
+				D124DEA419B467AD000CCCCD /* InfoPlist.strings */,
+				D124DEA719B467AD000CCCCD /* main.m */,
+				D124DEA919B467AD000CCCCD /* ChessMAC-Prefix.pch */,
+				D124DEAA19B467AD000CCCCD /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D124DEC219B467AE000CCCCD /* ChessMACTests */ = {
+			isa = PBXGroup;
+			children = (
+				D124DEC819B467AE000CCCCD /* ChessMACTests.m */,
+				D124DEC319B467AE000CCCCD /* Supporting Files */,
+			);
+			path = ChessMACTests;
+			sourceTree = "<group>";
+		};
+		D124DEC319B467AE000CCCCD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D124DEC419B467AE000CCCCD /* ChessMACTests-Info.plist */,
+				D124DEC519B467AE000CCCCD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D124DEDE19B46F1A000CCCCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D124DEE319B46F1A000CCCCD /* libChessEngine.a */,
+				D124DEE519B46F1A000CCCCD /* ChessEngineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D124DE9719B467AD000CCCCD /* ChessMAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D124DECC19B467AE000CCCCD /* Build configuration list for PBXNativeTarget "ChessMAC" */;
+			buildPhases = (
+				D124DE9419B467AD000CCCCD /* Sources */,
+				D124DE9519B467AD000CCCCD /* Frameworks */,
+				D124DE9619B467AD000CCCCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D124DEE719B46F34000CCCCD /* PBXTargetDependency */,
+			);
+			name = ChessMAC;
+			productName = ChessMAC;
+			productReference = D124DE9819B467AD000CCCCD /* ChessMAC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D124DEBB19B467AE000CCCCD /* ChessMACTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D124DECF19B467AE000CCCCD /* Build configuration list for PBXNativeTarget "ChessMACTests" */;
+			buildPhases = (
+				D124DEB819B467AE000CCCCD /* Sources */,
+				D124DEB919B467AE000CCCCD /* Frameworks */,
+				D124DEBA19B467AE000CCCCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D124DEC119B467AE000CCCCD /* PBXTargetDependency */,
+			);
+			name = ChessMACTests;
+			productName = ChessMACTests;
+			productReference = D124DEBC19B467AE000CCCCD /* ChessMACTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D124DE9019B467AD000CCCCD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = PMMedia;
+				TargetAttributes = {
+					D124DEBB19B467AE000CCCCD = {
+						TestTargetID = D124DE9719B467AD000CCCCD;
+					};
+				};
+			};
+			buildConfigurationList = D124DE9319B467AD000CCCCD /* Build configuration list for PBXProject "ChessMAC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D124DE8F19B467AD000CCCCD;
+			productRefGroup = D124DE9919B467AD000CCCCD /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D124DEDE19B46F1A000CCCCD /* Products */;
+					ProjectRef = D124DEDD19B46F1A000CCCCD /* ChessEngine.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D124DE9719B467AD000CCCCD /* ChessMAC */,
+				D124DEBB19B467AE000CCCCD /* ChessMACTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D124DEE319B46F1A000CCCCD /* libChessEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libChessEngine.a;
+			remoteRef = D124DEE219B46F1A000CCCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D124DEE519B46F1A000CCCCD /* ChessEngineTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChessEngineTests.xctest;
+			remoteRef = D124DEE419B46F1A000CCCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D124DE9619B467AD000CCCCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEB719B467AD000CCCCD /* Images.xcassets in Resources */,
+				D124DEA619B467AD000CCCCD /* InfoPlist.strings in Resources */,
+				D124DEAC19B467AD000CCCCD /* Credits.rtf in Resources */,
+				D124DEB519B467AD000CCCCD /* MainMenu.xib in Resources */,
+				D124DEED19B47205000CCCCD /* VDGameWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D124DEBA19B467AE000CCCCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEC719B467AE000CCCCD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D124DE9419B467AD000CCCCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEF319B47347000CCCCD /* VDAnnotationView.m in Sources */,
+				D124DEEC19B47205000CCCCD /* VDGameWindowController.m in Sources */,
+				D124DEF919B47825000CCCCD /* VDFigureView.m in Sources */,
+				D124DEF019B47330000CCCCD /* VDBoardView.m in Sources */,
+				D124DEF619B47660000CCCCD /* VDBoardViewController.m in Sources */,
+				D124DEAF19B467AD000CCCCD /* VDDocument.m in Sources */,
+				D124DEA819B467AD000CCCCD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D124DEB819B467AE000CCCCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D124DEC919B467AE000CCCCD /* ChessMACTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D124DEC119B467AE000CCCCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D124DE9719B467AD000CCCCD /* ChessMAC */;
+			targetProxy = D124DEC019B467AE000CCCCD /* PBXContainerItemProxy */;
+		};
+		D124DEE719B46F34000CCCCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChessEngine;
+			targetProxy = D124DEE619B46F34000CCCCD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D124DEA419B467AD000CCCCD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D124DEA519B467AD000CCCCD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D124DEAA19B467AD000CCCCD /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D124DEAB19B467AD000CCCCD /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D124DEB319B467AD000CCCCD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D124DEB419B467AD000CCCCD /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D124DEC519B467AE000CCCCD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D124DEC619B467AE000CCCCD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D124DECA19B467AE000CCCCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../ChessEngine;
+			};
+			name = Debug;
+		};
+		D124DECB19B467AE000CCCCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../ChessEngine;
+			};
+			name = Release;
+		};
+		D124DECD19B467AE000CCCCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessMAC/ChessMAC-Prefix.pch";
+				INFOPLIST_FILE = "ChessMAC/ChessMAC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Chess-domhgfupobluwaczmcfelznnggtf/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D124DECE19B467AE000CCCCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessMAC/ChessMAC-Prefix.pch";
+				INFOPLIST_FILE = "ChessMAC/ChessMAC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Chess-domhgfupobluwaczmcfelznnggtf/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D124DED019B467AE000CCCCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChessMAC.app/Contents/MacOS/ChessMAC";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessMAC/ChessMAC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChessMACTests/ChessMACTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D124DED119B467AE000CCCCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChessMAC.app/Contents/MacOS/ChessMAC";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChessMAC/ChessMAC-Prefix.pch";
+				INFOPLIST_FILE = "ChessMACTests/ChessMACTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D124DE9319B467AD000CCCCD /* Build configuration list for PBXProject "ChessMAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D124DECA19B467AE000CCCCD /* Debug */,
+				D124DECB19B467AE000CCCCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D124DECC19B467AE000CCCCD /* Build configuration list for PBXNativeTarget "ChessMAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D124DECD19B467AE000CCCCD /* Debug */,
+				D124DECE19B467AE000CCCCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D124DECF19B467AE000CCCCD /* Build configuration list for PBXNativeTarget "ChessMACTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D124DED019B467AE000CCCCD /* Debug */,
+				D124DED119B467AE000CCCCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D124DE9019B467AD000CCCCD /* Project object */;
+}
