@@ -60,4 +60,26 @@
 	return self;
 }
 
+#pragma mark - 
+
+- (BOOL)canUndo
+{
+	return NO;
+}
+
+- (BOOL)canRedo
+{
+	return NO;
+}
+
+- (void)undoMove
+{
+	
+}
+
+- (void)redoMove
+{
+	
+}
+
 @end

@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class VDMove;
+
 @interface VDHistory : NSObject
+
+- (NSUInteger)fullMoveCount; // white and black move
+- (NSString *)fullMoveRepAtIndex:(NSUInteger)index;
+
+- (void)addMove:(VDMove *)move;
+- (void)removeLastMove;
 
 @end

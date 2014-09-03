@@ -12,7 +12,7 @@
 #import "ChessEngine/VDFigure.h"
 #import "ChessEngine/VDBoard.h"
 
-@interface VDBoardViewController () <VDBoardViewDelegate>
+@interface VDBoardViewController () <VDBoardViewDelegate, VDFigureViewDelegate>
 
 @property (nonatomic, strong) VDBoardView *boardView;
 @property (nonatomic, strong) NSMutableArray *figureViews;
@@ -47,10 +47,43 @@
 {
 	if (_board != board)
 	{
+		NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+		if (_board != nil)
+		{
+			[center removeObserver:self name:VDBoardFigureDidMoveNotification object:_board];
+			[center removeObserver:self name:VDBoardFigureDidDownNotification object:_board];
+			[center removeObserver:self name:VDBoardFigureDidAppearNotification object:_board];
+			[center removeObserver:self name:VDBoardMoveDidCompleteNotification object:_board];
+			[center removeObserver:self name:VDBoardCheckNotification object:_board];
+			[center removeObserver:self name:VDBoardCheckMateNotification object:_board];
+		}
 		_board = board;
-		self.figureViews = nil;
-		[self figureViews];
+		if (_board != nil)
+		{
+			[center addObserver:self selector:@selector(figureDidMoveOnBoard:) name:VDBoardFigureDidMoveNotification object:_board];
+			[center addObserver:self selector:@selector(figureDidDownOnBoard:) name:VDBoardFigureDidDownNotification object:_board];
+			[center addObserver:self selector:@selector(figureDidAppearOnBoard:) name:VDBoardFigureDidAppearNotification object:_board];
+			[center addObserver:self selector:@selector(moveDidCompleteOnBoard:) name:VDBoardMoveDidCompleteNotification object:_board];
+			[center addObserver:self selector:@selector(checkOnBoard:) name:VDBoardCheckNotification object:_board];
+			[center addObserver:self selector:@selector(mateOnBoard:) name:VDBoardCheckMateNotification object:_board];
+		}
+		[self refreshFigureViews];
 	}
+}
+
+- (void)refreshFigureViews
+{
+	if (_figureViews != nil)
+	{
+		[_figureViews enumerateObjectsUsingBlock:^(VDFigureView *view, NSUInteger idx, BOOL *stop)
+		{
+			view.delegate = nil;
+			[view removeFromSuperview];
+		}];
+		[_figureViews removeAllObjects];
+	}
+	_figureViews = nil;
+	[self figureViews];
 }
 
 - (NSMutableArray *)figureViews
@@ -64,12 +97,72 @@
 		{
 			VDFigureView *figureView = [VDFigureView new];
 			figureView.figure = fig;
+			figureView.delegate = self;
 			[self.view addSubview:figureView];
 			[_figureViews addObject:figureView];
 		}];
 		[self recalcFigureFramesOnBoard:self.boardView];
 	}
 	return _figureViews;
+}
+
+- (VDFigureView *)viewForFigure:(VDFigure *)fig
+{
+	if (![self.board.whiteFigures containsObject:fig] && ![self.board.blackFigures containsObject:fig])
+		return nil;
+	
+	__block VDFigureView *result = nil;
+	[self.figureViews enumerateObjectsUsingBlock:^(VDFigureView *view, NSUInteger idx, BOOL *stop)
+	{
+		if (view.figure == fig)
+		{
+			result = view;
+			*stop = YES;
+		}
+	}];
+	
+	NSAssert(result != nil, @"Cannot find figureview for figure on board");
+	return result;
+}
+
+#pragma mark - Board Notifications
+
+- (void)figureDidMoveOnBoard:(NSNotification *)notification
+{
+	VDFigure *fig = notification.userInfo[VDBoardFigureKey];
+	VDFigureView *view = [self viewForFigure:fig];
+	view.frame = [self.boardView rectForField:view.figure.field];
+}
+
+- (void)figureDidDownOnBoard:(NSNotification *)notification
+{
+	VDFigure *fig = notification.userInfo[VDBoardFigureKey];
+	VDFigureView *view = [self viewForFigure:fig];
+	view.delegate = nil;
+	[view removeFromSuperview];
+	[self.figureViews removeObject:view];
+}
+
+- (void)figureDidAppearOnBoard:(NSNotification *)notification
+{
+//TODO: Implemnt figureDidAppearOnBoard
+}
+
+- (void)moveDidCompleteOnBoard:(NSNotification *)notification
+{
+	
+}
+
+- (void)checkOnBoard:(NSNotification *)notification
+{
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Check" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Do something"];
+	[alert runModal];
+}
+
+- (void)mateOnBoard:(NSNotification *)notification
+{
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Mate" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Game over"];
+	[alert runModal];
 }
 
 #pragma mark - VDBoardViewDelegate
@@ -84,7 +177,45 @@
 
 - (void)clickOnField:(VDField)field board:(VDBoardView *)boardView
 {
+	if (self.selectedFigure)
+	{
+		if ([self.board canMoveFigure:self.selectedFigure toField:field])
+		{
+			[self.board moveFigure:self.selectedFigure toField:field kingUnderCheck:NULL];
+			self.selectedFigure = nil;
+			self.possibleMoves = nil;
+		}
+	}
+	else
+	{
+		self.selectedFigure = nil;
+		self.possibleMoves = nil;
+	}
+}
+
+#pragma mark - VDFigureViewDelegate
+
+- (void)figureViewDidSelect:(VDFigureView *)figureView
+{
+	VDFigure *clickedFig = figureView.figure;
 	
+	if (self.selectedFigure)
+	{
+		
+	}
+	else
+	{
+		if (clickedFig.color == self.board.moveOrder)
+		{
+			self.selectedFigure = clickedFig;
+//			self.possibleMoves = ....;
+		}
+	}
+}
+
+- (void)figureView:(VDFigureView *)figureView didLeftAtPoint:(NSPoint)point
+{
+	//TODO: Implement figureViewDidLeftAtPoint:
 }
 
 @end

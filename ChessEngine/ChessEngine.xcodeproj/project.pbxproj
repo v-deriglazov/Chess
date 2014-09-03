@@ -14,6 +14,8 @@
 		D124DEDA19B46A41000CCCCD /* VDHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DED819B46A41000CCCCD /* VDHistory.h */; };
 		D124DEDB19B46A41000CCCCD /* VDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DED919B46A41000CCCCD /* VDHistory.m */; };
 		D124DEE819B46FC5000CCCCD /* ChessEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D124DEDC19B46E68000CCCCD /* ChessEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D14C997319B702EF006AE7A1 /* VDMove.h in Headers */ = {isa = PBXBuildFile; fileRef = D14C997119B702EF006AE7A1 /* VDMove.h */; };
+		D14C997419B702EF006AE7A1 /* VDMove.m in Sources */ = {isa = PBXBuildFile; fileRef = D14C997219B702EF006AE7A1 /* VDMove.m */; };
 		D1B9750219B0AE800044BD69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9750119B0AE800044BD69 /* Cocoa.framework */; };
 		D1B9751319B0AE800044BD69 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9751219B0AE800044BD69 /* XCTest.framework */; };
 		D1B9751419B0AE800044BD69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B9750119B0AE800044BD69 /* Cocoa.framework */; };
@@ -56,6 +58,8 @@
 		D124DED819B46A41000CCCCD /* VDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDHistory.h; sourceTree = "<group>"; };
 		D124DED919B46A41000CCCCD /* VDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDHistory.m; sourceTree = "<group>"; };
 		D124DEDC19B46E68000CCCCD /* ChessEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessEngine.h; sourceTree = "<group>"; };
+		D14C997119B702EF006AE7A1 /* VDMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMove.h; sourceTree = "<group>"; };
+		D14C997219B702EF006AE7A1 /* VDMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMove.m; sourceTree = "<group>"; };
 		D1B974FE19B0AE800044BD69 /* libChessEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B9750119B0AE800044BD69 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D1B9750419B0AE800044BD69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,6 +179,8 @@
 				D1B9752F19B0B4180044BD69 /* VDField.m */,
 				D124DE8919B45268000CCCCD /* VDBoard.h */,
 				D124DE8A19B45268000CCCCD /* VDBoard.m */,
+				D14C997119B702EF006AE7A1 /* VDMove.h */,
+				D14C997219B702EF006AE7A1 /* VDMove.m */,
 				D124DED819B46A41000CCCCD /* VDHistory.h */,
 				D124DED919B46A41000CCCCD /* VDHistory.m */,
 				D124DED419B468AC000CCCCD /* VDGame.h */,
@@ -228,6 +234,7 @@
 				D1B9753C19B0D9420044BD69 /* VDRook.h in Headers */,
 				D1B9753819B0D9320044BD69 /* VDQueen.h in Headers */,
 				D1B9754819B0D96B0044BD69 /* VDPawn.h in Headers */,
+				D14C997319B702EF006AE7A1 /* VDMove.h in Headers */,
 				D124DED619B468AC000CCCCD /* VDGame.h in Headers */,
 				D1B9754419B0D95E0044BD69 /* VDKnight.h in Headers */,
 			);
@@ -318,6 +325,7 @@
 				D1B9754519B0D95E0044BD69 /* VDKnight.m in Sources */,
 				D1B9753919B0D9320044BD69 /* VDQueen.m in Sources */,
 				D124DED719B468AC000CCCCD /* VDGame.m in Sources */,
+				D14C997419B702EF006AE7A1 /* VDMove.m in Sources */,
 				D124DEDB19B46A41000CCCCD /* VDHistory.m in Sources */,
 				D1B9753519B0D9200044BD69 /* VDKing.m in Sources */,
 				D1B9754919B0D96B0044BD69 /* VDPawn.m in Sources */,

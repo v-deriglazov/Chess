@@ -12,7 +12,7 @@
 
 - (NSSet *)possibleMoves
 {
-	return [NSSet setWithArray:DiagonalsFieldsWithField(self.field)];
+	return [NSSet setWithArray:DiagonalsFieldsWithField(self.field, NO)];
 }
 
 - (NSString *)letter

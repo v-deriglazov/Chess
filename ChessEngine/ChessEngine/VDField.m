@@ -42,7 +42,7 @@ VDField VDFieldFromString(NSString *str)
 	NSArray *letters = @[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h"];
 	NSString *rowStr = [str substringToIndex:1];
 	
-	VDField field = VDFieldMake([letters indexOfObject:rowStr], [[str substringFromIndex:1] integerValue] - 1);
+	VDField field = VDFieldMake([[str substringFromIndex:1] integerValue] - 1, [letters indexOfObject:rowStr]);
 	if (field.column >= kVDBoardSize || field.row >= kVDBoardSize)
 	{
 //		@throw @"Incorrect string to conversion to vdfield";
@@ -62,32 +62,41 @@ BOOL VDFieldsAreEqual(VDField field1, VDField field2)
 	return (field1.column == field2.column) && (field1.row == field2.row);
 }
 
-NSArray *HorizontalFieldsWithField(VDField field)
+NSArray *HorizontalFieldsWithField(VDField field, BOOL inclusionFlag)
 {
 	NSMutableArray *result = [NSMutableArray new];
 	for (NSUInteger col = 0; col < kVDBoardSize; col++)
 	{
+		if (!inclusionFlag && col == field.column)
+			continue;
+		
 		[result addObject:NSStringFromField(VDFieldMake(field.row, col))];
 	}
 	
 	return result;
 }
 
-NSArray *VerticalFieldsWithField(VDField field)
+NSArray *VerticalFieldsWithField(VDField field, BOOL inclusionFlag)
 {
 	NSMutableArray *result = [NSMutableArray new];
 	for (NSUInteger row = 0; row < kVDBoardSize; row++)
 	{
+		if (!inclusionFlag && row == field.row)
+			continue;
+		
 		[result addObject:NSStringFromField(VDFieldMake(row, field.column))];
 	}
 	return result;
 }
 
-NSArray *DiagonalsFieldsWithField(VDField field)
+NSArray *DiagonalsFieldsWithField(VDField field, BOOL inclusionFlag)
 {
 	NSMutableArray *result = [NSMutableArray new];
 	for (NSUInteger col = 0; col < kVDBoardSize; col++)
 	{
+		if (!inclusionFlag && col == field.column)
+			continue;
+		
 		NSInteger row = (int)field.row - (field.column - col);
 		if (row >= 0 && row < kVDBoardSize)
 		{
@@ -110,7 +119,7 @@ NSArray *DiagonalsFieldsWithField(VDField field)
 	return result;
 }
 
-NSArray *NearbyFieldsToField(VDField field)
+NSArray *NearbyFieldsToField(VDField field, BOOL inclusionFlag)
 {
 	NSMutableArray *result = [NSMutableArray new];
 	
@@ -124,6 +133,9 @@ NSArray *NearbyFieldsToField(VDField field)
 		{
 			NSInteger row = field.row - 1 + j;
 			if (row < 0 || row >= kVDBoardSize)
+				continue;
+			
+			if (!inclusionFlag && col == field.column && row == field.row)
 				continue;
 			
 			[result addObject:NSStringFromField(VDFieldMake(row, col))];

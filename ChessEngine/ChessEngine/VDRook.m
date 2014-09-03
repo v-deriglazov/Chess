@@ -12,8 +12,8 @@
 
 - (NSSet *)possibleMoves
 {
-	NSMutableSet *result = [NSMutableSet setWithArray:HorizontalFieldsWithField(self.field)];
-	[result addObjectsFromArray:VerticalFieldsWithField(self.field)];
+	NSMutableSet *result = [NSMutableSet setWithArray:HorizontalFieldsWithField(self.field, NO)];
+	[result addObjectsFromArray:VerticalFieldsWithField(self.field, NO)];
 	return result;
 }
 

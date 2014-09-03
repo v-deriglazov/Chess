@@ -11,10 +11,16 @@
 
 @class VDFigure, VDKing;
 
+static NSString *const VDBoardFigureDidMoveNotification;
 static NSString *const VDBoardFigureDidDownNotification;
+static NSString *const VDBoardFigureDidAppearNotification;
 static NSString *const VDBoardMoveDidCompleteNotification;
-static NSString *const VDBoardKingDidCheckedNotification;
+static NSString *const VDBoardCheckNotification;
 static NSString *const VDBoardCheckMateNotification;
+
+	static NSString *const VDBoardFigureKey;
+	static NSString *const VDBoardFieldKey;
+
 
 @interface VDBoard : NSObject //<NSCopying, NSCoding>
 
@@ -29,5 +35,6 @@ static NSString *const VDBoardCheckMateNotification;
 - (void)moveFigure:(VDFigure *)figure toField:(VDField)field kingUnderCheck:(BOOL *)flag;
 
 - (VDKing *)kingForColor:(VDColor)color;
+- (VDFigure *)figureOnField:(VDField)field;
 
 @end

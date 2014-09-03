@@ -8,8 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class VDFigure;
+@class VDFigure, VDFigureView;
+
+@protocol VDFigureViewDelegate <NSObject>
+
+- (void)figureViewDidSelect:(VDFigureView *)figureView;
+- (void)figureView:(VDFigureView *)figureView didLeftAtPoint:(NSPoint)point;
+
+@end
+
 
 @interface VDFigureView : NSView
+
 @property (nonatomic, weak) VDFigure *figure;
+@property (nonatomic, weak) id<VDFigureViewDelegate> delegate;
+
 @end

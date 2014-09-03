@@ -576,6 +576,7 @@
 				D124DECE19B467AE000CCCCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D124DECF19B467AE000CCCCD /* Build configuration list for PBXNativeTarget "ChessMACTests" */ = {
 			isa = XCConfigurationList;
@@ -584,6 +585,7 @@
 				D124DED119B467AE000CCCCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -23,4 +23,10 @@
 @property (nonatomic, readonly) NSTimeInterval whiteTime;
 @property (nonatomic, readonly) NSTimeInterval blackTime;
 
+@property (nonatomic, readonly) VDHistory *history;
+@property (nonatomic, readonly) BOOL canUndo;
+@property (nonatomic, readonly) BOOL canRedo;
+- (void)undoMove;
+- (void)redoMove;
+
 @end

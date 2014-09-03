@@ -12,7 +12,7 @@
 
 - (NSSet *)possibleMoves
 {
-	return [NSSet setWithArray:NearbyFieldsToField(self.field)];
+	return [NSSet setWithArray:NearbyFieldsToField(self.field, NO)];
 }
 
 - (NSString *)letter

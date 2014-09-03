@@ -34,7 +34,7 @@ extern VDField VDFieldFromString(NSString *str);
 extern VDColor VDFieldColor(VDField field);
 extern BOOL VDFieldsAreEqual(VDField field1, VDField field2);
 
-extern NSArray *HorizontalFieldsWithField(VDField field);
-extern NSArray *VerticalFieldsWithField(VDField field);
-extern NSArray *DiagonalsFieldsWithField(VDField field);
-extern NSArray *NearbyFieldsToField(VDField field);
+extern NSArray *HorizontalFieldsWithField(VDField field, BOOL inclusionFlag);
+extern NSArray *VerticalFieldsWithField(VDField field, BOOL inclusionFlag);
+extern NSArray *DiagonalsFieldsWithField(VDField field, BOOL inclusionFlag);
+extern NSArray *NearbyFieldsToField(VDField field, BOOL inclusionFlag);

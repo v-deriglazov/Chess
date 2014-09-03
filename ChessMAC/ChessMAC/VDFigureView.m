@@ -38,8 +38,44 @@
 		default:
 			break;
 	}
+	
+	//TODO: optimize!
 	NSString *str = [NSString stringWithUTF8String:figure];
-	[str drawInRect:self.bounds withAttributes:nil];
+	NSDictionary *attr = @{NSFontAttributeName : [NSFont systemFontOfSize:30]};
+	NSSize size = [str sizeWithAttributes:attr];
+
+	NSSize boundsSize = self.bounds.size;
+	NSRect drawRect = NSMakeRect((boundsSize.width - size.width) / 2, (boundsSize.height - size.height) / 2, size.width, size.height);
+	drawRect = NSIntegralRect(drawRect);
+	[str drawInRect:drawRect withAttributes:attr];
 }
+
+#pragma mark -
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+	NSLog(@"mouseDown %@", NSStringFromPoint(point));
+	[self.delegate figureViewDidSelect:self];
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+	NSLog(@"mouseUp %@", NSStringFromPoint(point));
+	[self.delegate figureView:self didLeftAtPoint:point];
+}
+
+//- (void)mouseMoved:(NSEvent *)theEvent
+//{
+//	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+//	NSLog(@"mouseMoved %@", NSStringFromPoint(point));
+//}
+//
+//- (void)mouseDragged:(NSEvent *)theEvent
+//{
+//	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+//	NSLog(@"mouseDragged %@", NSStringFromPoint(point));
+//}
 
 @end
