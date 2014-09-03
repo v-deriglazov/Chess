@@ -22,6 +22,7 @@
 @property (nonatomic, weak) VDFigure *figure;
 @property (nonatomic) VDField from;
 @property (nonatomic) VDField to;
+@property (nonatomic) BOOL figWasMoved;
 @property (nonatomic, strong) VDFigure *killedFigure; // enemy figure or pawn on the 8/1 row
 
 @property (nonatomic) BOOL castle;

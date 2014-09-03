@@ -38,3 +38,8 @@ extern NSArray *HorizontalFieldsWithField(VDField field, BOOL inclusionFlag);
 extern NSArray *VerticalFieldsWithField(VDField field, BOOL inclusionFlag);
 extern NSArray *DiagonalsFieldsWithField(VDField field, BOOL inclusionFlag);
 extern NSArray *NearbyFieldsToField(VDField field, BOOL inclusionFlag);
+
+extern NSSet *HorizontalFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps);
+extern NSSet *VerticalFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps);
+extern NSSet *DiagonalsFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps);
+extern NSSet *NearbyFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps);

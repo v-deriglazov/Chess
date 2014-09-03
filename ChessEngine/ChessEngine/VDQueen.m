@@ -18,6 +18,19 @@
 	return result;
 }
 
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures
+{
+	NSMutableSet *hardTraps = nil;
+	NSMutableSet *softTraps = nil;
+	[self obtainFromFigures:figures hardTraps:&hardTraps softTraps:&softTraps];
+	
+	NSMutableSet *result = [HorizontalFieldsWithFieldWithHardAndSoftTraps(self.field, hardTraps, softTraps) mutableCopy];
+	[result unionSet:VerticalFieldsWithFieldWithHardAndSoftTraps(self.field, hardTraps, softTraps)];
+	[result unionSet:DiagonalsFieldsWithFieldWithHardAndSoftTraps(self.field, hardTraps, softTraps)];
+	
+	return result;
+}
+
 - (NSString *)letter
 {
 	return @"Q";

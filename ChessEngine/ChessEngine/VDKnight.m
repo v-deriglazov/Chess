@@ -12,6 +12,15 @@
 
 - (NSSet *)possibleMoves
 {
+	NSSet *result = [self rawPossibleMovesWithFigures:nil];
+	return result;
+}
+
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures
+{
+	NSMutableSet *hardTraps = nil;
+	[self obtainFromFigures:figures hardTraps:&hardTraps softTraps:NULL];
+	
 	NSMutableSet *result = [NSMutableSet new];
 	VDField field = self.field;
 	if (field.column > 1)
@@ -59,6 +68,8 @@
 			[result addObject:NSStringFromField(VDFieldMake(field.row + 2, field.column + 1))];
 		}
 	}
+	
+	[result minusSet:hardTraps];
 	
 	return result;
 }

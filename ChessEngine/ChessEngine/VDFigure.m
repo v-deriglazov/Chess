@@ -56,6 +56,33 @@
 	return nil;
 }
 
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures
+{
+	return nil;
+}
+
+- (void)obtainFromFigures:(NSSet *)figures hardTraps:(NSSet *__autoreleasing *)hardTraps softTraps:(NSSet *__autoreleasing *)softTraps
+{
+	NSMutableSet *hardTraps1 = [NSMutableSet new];
+	NSMutableSet *softTraps1 = [NSMutableSet new];
+	for (VDFigure *fig in figures)
+	{
+		if (self.color == fig.color)
+			[hardTraps1 addObject:NSStringFromField(fig.field)];
+		else
+			[softTraps1 addObject:NSStringFromField(fig.field)];
+	}
+	
+	if (hardTraps != NULL)
+	{
+		*hardTraps = hardTraps1;
+	}
+	if (softTraps != NULL)
+	{
+		*softTraps = softTraps1;
+	}
+}
+
 - (NSString *)letter
 {
 	return @"A";

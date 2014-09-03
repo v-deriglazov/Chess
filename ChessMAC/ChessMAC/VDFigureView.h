@@ -22,5 +22,6 @@
 
 @property (nonatomic, weak) VDFigure *figure;
 @property (nonatomic, weak) id<VDFigureViewDelegate> delegate;
+@property (nonatomic) BOOL selected;
 
 @end

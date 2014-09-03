@@ -15,6 +15,14 @@
 	return [NSSet setWithArray:NearbyFieldsToField(self.field, NO)];
 }
 
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures
+{
+	NSMutableSet *hardTraps = nil;
+	NSMutableSet *softTraps = nil;
+	[self obtainFromFigures:figures hardTraps:&hardTraps softTraps:&softTraps];
+	return NearbyFieldsWithFieldWithHardAndSoftTraps(self.field, hardTraps, softTraps);
+}
+
 - (NSString *)letter
 {
 	return @"K";

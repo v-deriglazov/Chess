@@ -144,3 +144,171 @@ NSArray *NearbyFieldsToField(VDField field, BOOL inclusionFlag)
 	
 	return result;
 }
+
+NSSet *HorizontalFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps)
+{
+	__block NSMutableSet *result = [NSMutableSet new];
+	
+	BOOL (^block) (int col) = ^BOOL (int col)
+	{
+		NSString *fieldStr = NSStringFromField(VDFieldMake(field.row, col));
+		if ([hardTraps containsObject:fieldStr])
+		{
+			return NO;
+		}
+		else if ([softTraps containsObject:fieldStr])
+		{
+			[result addObject:fieldStr];
+			return NO;
+		}
+		else
+		{
+			[result addObject:fieldStr];
+			return YES;
+		}
+	};
+	
+	for (int col = (int)field.column + 1; col < kVDBoardSize; col++)
+	{
+		if (!block(col))
+		{
+			break;
+		}
+	}
+	
+	for (int col = (int)field.column - 1; col >= 0; col--)
+	{
+		if (!block(col))
+		{
+			break;
+		}
+	}
+	
+	return result;
+}
+
+NSSet *VerticalFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps)
+{
+	__block NSMutableSet *result = [NSMutableSet new];
+	
+	BOOL (^block) (int col) = ^BOOL (int row)
+	{
+		NSString *fieldStr = NSStringFromField(VDFieldMake(row, field.column));
+		if ([hardTraps containsObject:fieldStr])
+		{
+			return NO;
+		}
+		else if ([softTraps containsObject:fieldStr])
+		{
+			[result addObject:fieldStr];
+			return NO;
+		}
+		else
+		{
+			[result addObject:fieldStr];
+			return YES;
+		}
+	};
+	
+	for (int row = (int)field.row + 1; row < kVDBoardSize; row++)
+	{
+		if (!block(row))
+		{
+			break;
+		}
+	}
+	
+	for (int row = (int)field.row - 1; row >= 0; row--)
+	{
+		if (!block(row))
+		{
+			break;
+		}
+	}
+	
+	return result;
+}
+
+NSSet *DiagonalsFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps)
+{
+	__block NSMutableSet *result = [NSMutableSet new];
+	
+	BOOL (^block) (int row, int col) = ^BOOL (int row, int col)
+	{
+		NSString *fieldStr = NSStringFromField(VDFieldMake(row, col));
+		if ([hardTraps containsObject:fieldStr])
+		{
+			return NO;
+		}
+		else if ([softTraps containsObject:fieldStr])
+		{
+			[result addObject:fieldStr];
+			return NO;
+		}
+		else
+		{
+			[result addObject:fieldStr];
+			return YES;
+		}
+	};
+	
+	for (int col = (int)field.column + 1; col < kVDBoardSize; col++)
+	{
+		int row = (int)field.row - ((int)field.column - col);
+		if (!block(row, col))
+			break;
+	}
+	
+	for (int col = (int)field.column + 1; col < kVDBoardSize; col++)
+	{
+		int row = (int)field.row + ((int)field.column - col);
+		if (!block(row, col))
+			break;
+	}
+	
+	for (int col = (int)field.column - 1; col >= 0; col--)
+	{
+		int row = (int)field.row - ((int)field.column - col);
+		if (!block(row, col))
+			break;
+	}
+	
+	for (int col = (int)field.column - 1; col >= 0; col--)
+	{
+		int row = (int)field.row + ((int)field.column - col);
+		if (!block(row, col))
+			break;
+	}
+	
+	return result;
+}
+
+NSSet *NearbyFieldsWithFieldWithHardAndSoftTraps(VDField field, NSSet *hardTraps, NSSet *softTraps)
+{
+	NSMutableSet *result = [NSMutableSet new];
+	
+	for (NSInteger i = 0; i < 3;  i++)
+	{
+		NSInteger col = field.column - 1 + i;
+		if (col < 0 || col >= kVDBoardSize)
+			continue;
+		
+		for (NSInteger j = 0; j < 3;  j++)
+		{
+			NSInteger row = field.row - 1 + j;
+			if (row < 0 || row >= kVDBoardSize)
+				continue;
+			
+			if (col == field.column && row == field.row)
+				continue;
+			
+			NSString *fieldStr = NSStringFromField(VDFieldMake(row, col));
+			if (![hardTraps containsObject:fieldStr])
+			{
+				[result addObject:fieldStr];
+			}
+		}
+	}
+	
+	return result;
+}

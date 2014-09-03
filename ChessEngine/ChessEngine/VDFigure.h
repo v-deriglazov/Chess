@@ -32,6 +32,8 @@ typedef enum : NSUInteger
 @property (nonatomic, readonly) BOOL moved;
 
 @property (nonatomic, readonly) NSSet *possibleMoves;
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures;
+- (void)obtainFromFigures:(NSSet *)figures hardTraps:(NSSet **)hardTraps softTraps:(NSSet **)softTraps;
 
 @property (nonatomic, readonly) NSString *letter;
 

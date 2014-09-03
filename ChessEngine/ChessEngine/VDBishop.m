@@ -15,6 +15,17 @@
 	return [NSSet setWithArray:DiagonalsFieldsWithField(self.field, NO)];
 }
 
+- (NSSet *)rawPossibleMovesWithFigures:(NSSet *)figures
+{
+	NSMutableSet *hardTraps = nil;
+	NSMutableSet *softTraps = nil;
+	[self obtainFromFigures:figures hardTraps:&hardTraps softTraps:&softTraps];
+	
+	NSSet *result = DiagonalsFieldsWithFieldWithHardAndSoftTraps(self.field, hardTraps, softTraps);
+	
+	return result;
+}
+
 - (NSString *)letter
 {
 	return @"B";

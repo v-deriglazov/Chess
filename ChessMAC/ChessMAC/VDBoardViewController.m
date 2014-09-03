@@ -125,6 +125,33 @@
 	return result;
 }
 
+#pragma mark - 
+
+- (void)setSelectedFigure:(VDFigure *)selectedFigure
+{
+	if (_selectedFigure != selectedFigure)
+	{
+		VDFigureView *view = [self viewForFigure:_selectedFigure];
+		view.selected = NO;
+		
+		_selectedFigure = selectedFigure;
+		
+		view = [self viewForFigure:_selectedFigure];
+		view.selected = YES;
+		
+		self.possibleMoves = [self.board possibleMovesForFigure:_selectedFigure];
+	}
+}
+
+- (void)setPossibleMoves:(NSSet *)possibleMoves
+{
+	if (![_possibleMoves isEqualToSet:possibleMoves])
+	{
+		_possibleMoves = possibleMoves;
+		self.boardView.highlightedFields = _possibleMoves;
+	}
+}
+
 #pragma mark - Board Notifications
 
 - (void)figureDidMoveOnBoard:(NSNotification *)notification
@@ -150,7 +177,8 @@
 
 - (void)moveDidCompleteOnBoard:(NSNotification *)notification
 {
-	
+	NSLog(@"moveDidCompleteOnBoard");
+	self.selectedFigure = nil;
 }
 
 - (void)checkOnBoard:(NSNotification *)notification
@@ -177,19 +205,18 @@
 
 - (void)clickOnField:(VDField)field board:(VDBoardView *)boardView
 {
+	NSLog(@"clickOnField %@", NSStringFromField(field));
 	if (self.selectedFigure)
 	{
 		if ([self.board canMoveFigure:self.selectedFigure toField:field])
 		{
 			[self.board moveFigure:self.selectedFigure toField:field kingUnderCheck:NULL];
 			self.selectedFigure = nil;
-			self.possibleMoves = nil;
 		}
 	}
 	else
 	{
 		self.selectedFigure = nil;
-		self.possibleMoves = nil;
 	}
 }
 
@@ -201,15 +228,23 @@
 	
 	if (self.selectedFigure)
 	{
-		
-	}
-	else
-	{
-		if (clickedFig.color == self.board.moveOrder)
-		{
+		if (clickedFig == self.selectedFigure)
+			self.selectedFigure = nil;
+		else if (clickedFig.color == self.board.moveOrder)
 			self.selectedFigure = clickedFig;
-//			self.possibleMoves = ....;
+		else
+		{
+			VDField fieldToMove = clickedFig.field;
+			if ([self.board canMoveFigure:self.selectedFigure toField:fieldToMove])
+			{
+				[self.board moveFigure:self.selectedFigure toField:fieldToMove kingUnderCheck:NULL];
+				self.selectedFigure = nil;
+			}
 		}
+	}
+	else if (clickedFig.color == self.board.moveOrder)
+	{
+		self.selectedFigure = clickedFig;
 	}
 }
 

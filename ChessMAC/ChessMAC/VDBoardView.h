@@ -33,10 +33,13 @@ typedef enum : NSUInteger
 @property (nonatomic) VDBoardOrientaion orientation;
 @property (nonatomic, strong) NSColor *whiteFieldColor;
 @property (nonatomic, strong) NSColor *blackFieldColor;
+@property (nonatomic, strong) NSColor *highlightFieldColor;
 
 @property (nonatomic, weak) id<VDBoardViewDelegate> delegate;
 
 - (NSSize)sizeForField;
 - (NSRect)rectForField:(VDField)field;
+
+@property (nonatomic, strong) NSSet *highlightedFields;
 
 @end

@@ -11,15 +11,15 @@
 
 @class VDFigure, VDKing;
 
-static NSString *const VDBoardFigureDidMoveNotification;
-static NSString *const VDBoardFigureDidDownNotification;
-static NSString *const VDBoardFigureDidAppearNotification;
-static NSString *const VDBoardMoveDidCompleteNotification;
-static NSString *const VDBoardCheckNotification;
-static NSString *const VDBoardCheckMateNotification;
+extern NSString *const VDBoardFigureDidMoveNotification;
+extern NSString *const VDBoardFigureDidDownNotification;
+extern NSString *const VDBoardFigureDidAppearNotification;
+extern NSString *const VDBoardMoveDidCompleteNotification;
+extern NSString *const VDBoardCheckNotification;
+extern NSString *const VDBoardCheckMateNotification;
 
-	static NSString *const VDBoardFigureKey;
-	static NSString *const VDBoardFieldKey;
+	extern NSString *const VDBoardFigureKey;
+	extern NSString *const VDBoardFieldKey;
 
 
 @interface VDBoard : NSObject //<NSCopying, NSCoding>
@@ -32,6 +32,7 @@ static NSString *const VDBoardCheckMateNotification;
 @property (nonatomic, readonly) VDColor moveOrder;
 
 - (BOOL)canMoveFigure:(VDFigure *)figure toField:(VDField)field;
+- (NSSet *)possibleMovesForFigure:(VDFigure *)figure;
 - (void)moveFigure:(VDFigure *)figure toField:(VDField)field kingUnderCheck:(BOOL *)flag;
 
 - (VDKing *)kingForColor:(VDColor)color;

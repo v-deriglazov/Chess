@@ -10,4 +10,6 @@
 
 @interface VDPawn : VDFigure
 
+- (NSSet *)beatFields;
+
 @end

@@ -14,6 +14,12 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+	if (self.selected)
+	{
+		[[NSColor blueColor] setFill];
+		NSRectFill(self.bounds);
+	}
+	
 	char *figure = NULL;
 	switch (self.figure.type)
 	{
@@ -39,18 +45,32 @@
 			break;
 	}
 	
-	//TODO: optimize!
-	NSString *str = [NSString stringWithUTF8String:figure];
-	NSDictionary *attr = @{NSFontAttributeName : [NSFont systemFontOfSize:30]};
-	NSSize size = [str sizeWithAttributes:attr];
-
-	NSSize boundsSize = self.bounds.size;
-	NSRect drawRect = NSMakeRect((boundsSize.width - size.width) / 2, (boundsSize.height - size.height) / 2, size.width, size.height);
-	drawRect = NSIntegralRect(drawRect);
-	[str drawInRect:drawRect withAttributes:attr];
+	if (figure != NULL)
+	{
+		//TODO: optimize!
+		NSString *str = [NSString stringWithUTF8String:figure];
+		NSDictionary *attr = @{NSFontAttributeName : [NSFont systemFontOfSize:30]};
+		NSSize size = [str sizeWithAttributes:attr];
+		
+		NSSize boundsSize = self.bounds.size;
+		NSRect drawRect = NSMakeRect((boundsSize.width - size.width) / 2, (boundsSize.height - size.height) / 2, size.width, size.height);
+		drawRect = NSIntegralRect(drawRect);
+		[str drawInRect:drawRect withAttributes:attr];
+	}
 }
 
 #pragma mark -
+
+- (void)setSelected:(BOOL)selected
+{
+	if (_selected != selected)
+	{
+		_selected = selected;
+		[self setNeedsDisplay:YES];
+	}
+}
+
+#pragma mark - Event Handling
 
 - (void)mouseDown:(NSEvent *)theEvent
 {

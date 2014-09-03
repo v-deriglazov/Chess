@@ -74,6 +74,24 @@ static CGFloat const kVDBoardViewTitleSpace = 20;
 	return _blackFieldColor;
 }
 
+- (NSColor *)highlightFieldColor
+{
+	if (_highlightFieldColor == nil)
+	{
+		_highlightFieldColor = [NSColor greenColor];
+	}
+	return _highlightFieldColor;
+}
+
+- (void)setHighlightedFields:(NSSet *)highlightedFields
+{
+	if (![_highlightedFields isEqualToSet:highlightedFields])
+	{
+		_highlightedFields = highlightedFields;
+		[self setNeedsDisplay:YES];
+	}
+}
+
 #pragma mark -
 
 - (NSSize)sizeForField
@@ -106,16 +124,28 @@ static CGFloat const kVDBoardViewTitleSpace = 20;
 	NSRect bounds = self.bounds;
 	[self.blackFieldColor setFill];
 	NSRectFill(bounds);
+
+	//TODO: optimize!
 	
-	[self.whiteFieldColor setFill];
 	for (NSUInteger row = 0; row < kVDBoardSize; row++)
 	{
 		for (NSUInteger col = 0; col < kVDBoardSize; col++)
 		{
 			VDField field = VDFieldMake(row, col);
+			NSRect fieldRect = [self rectForField:field];
+			
 			if (VDFieldColor(field) == VDColorWhite)
 			{
-				NSRectFill([self rectForField:field]);
+				[self.whiteFieldColor setFill];
+				NSRectFill(fieldRect);
+			}
+			
+			if ([self.highlightedFields containsObject:NSStringFromField(field)])
+			{
+				NSRect highlightRect = NSInsetRect(fieldRect, fieldRect.size.width / 4, fieldRect.size.height / 4);
+				highlightRect = NSIntegralRect(highlightRect);
+				[self.highlightFieldColor setFill];
+				NSRectFill(highlightRect);
 			}
 		}
 	}
@@ -131,7 +161,7 @@ static CGFloat const kVDBoardViewTitleSpace = 20;
 	
 	NSSize fieldSize = [self sizeForField];
 	
-	VDField field = VDFieldMake( ceilf(point.y / fieldSize.width) - 1, ceilf(point.x / fieldSize.height) - 1);
+	VDField field = VDFieldMake( ceilf(point.y / fieldSize.height) - 1, ceilf(point.x / fieldSize.width) - 1);
 	[self.delegate clickOnField:field board:self];
 }
 

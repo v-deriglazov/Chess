@@ -17,15 +17,19 @@
 
 #import "VDMove.h"
 
-static NSString *const VDBoardFigureDidMoveNotification = @"VDBoardFigureDidMoveNotification";
-static NSString *const VDBoardFigureDidDownNotification = @"VDBoardFigureDidDownNotification";
-static NSString *const VDBoardFigureDidAppearNotification = @"VDBoardFigureDidAppearNotification";
-static NSString *const VDBoardMoveDidCompleteNotification = @"VDBoardMoveDidCompleteNotification";
-static NSString *const VDBoardCheckNotification = @"VDBoardCheckNotification";
-static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
+NSString *const VDBoardFigureDidMoveNotification = @"VDBoardFigureDidMoveNotification";
+NSString *const VDBoardFigureDidDownNotification = @"VDBoardFigureDidDownNotification";
+NSString *const VDBoardFigureDidAppearNotification = @"VDBoardFigureDidAppearNotification";
+NSString *const VDBoardMoveDidCompleteNotification = @"VDBoardMoveDidCompleteNotification";
+NSString *const VDBoardCheckNotification = @"VDBoardCheckNotification";
+NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 
-	static NSString *const VDBoardFigureKey = @"VDBoardFigureKey";
-	static NSString *const VDBoardFieldKey = @"VDBoardFieldKey";
+	NSString *const VDBoardFigureKey = @"VDBoardFigureKey";
+	NSString *const VDBoardFieldKey = @"VDBoardFieldKey";
+
+@interface VDFigure (BoardAddition)
+@property (nonatomic) BOOL moved;
+@end
 
 
 @interface VDBoard ()
@@ -120,6 +124,38 @@ static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotifica
 
 #pragma mark - Board Logic
 
+- (NSSet *)possibleMovesForFigure:(VDFigure *)figure
+{
+	NSMutableSet *result = [NSMutableSet new];
+	do
+	{
+		if (self.moveOrder != figure.color)
+			break;
+
+		NSMutableSet *figures = [NSMutableSet setWithArray:self.whiteFigures];
+		[figures addObjectsFromArray:self.blackFigures];
+		NSSet *rawResult = [figure rawPossibleMovesWithFigures:figures];
+		for (NSString *fieldStr in rawResult)
+		{
+			if ([self canMoveFigure:figure toField:VDFieldFromString(fieldStr)])
+			{
+				[result addObject:fieldStr];
+			}
+		}
+		
+		[result unionSet:[self additionalPossibleMovesForFigure:figure]];
+//		for (NSString *fieldStr in rawResult)
+//		{
+//			if ([self canMoveFigure:figure toField:VDFieldFromString(fieldStr)])
+//			{
+//				[result addObject:fieldStr];
+//			}
+//		}
+	} while (NO);
+
+	return result;
+}
+
 - (BOOL)canMoveFigure:(VDFigure *)figure toField:(VDField)field
 {
 	return [self canMoveFigure:figure toField:field checkOwnKing:YES];
@@ -142,12 +178,16 @@ static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotifica
 		if (figOnField != nil && figOnField.color == figure.color)
 			break;
 		
-		NSSet *rawPossibleMoves = figure.possibleMoves;
-		if (![rawPossibleMoves containsObject:NSStringFromField(field)])
+		NSMutableSet *allFigures = [NSMutableSet setWithArray:self.whiteFigures];
+		[allFigures addObjectsFromArray:self.blackFigures];
+		NSSet *rawPossibleMoves = [figure rawPossibleMovesWithFigures:allFigures];
+		
+		NSSet *additionalPossibleMoves = [self additionalPossibleMovesForFigure:figure];
+		NSString *fieldStr = NSStringFromField(field);
+		if (![rawPossibleMoves containsObject:fieldStr] && ![additionalPossibleMoves containsObject:fieldStr])
 			break;
 		
 #warning Check field accessibility (lines, diagonals, pawn...)
-#warning special cases: beat on a passage; castle...?
 		
 		if (checkKing)
 		{
@@ -176,6 +216,27 @@ static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotifica
 		result = YES;
 	} while (NO);
 	
+	return result;
+}
+
+- (NSSet *)additionalPossibleMovesForFigure:(VDFigure *)figure
+{
+	NSMutableSet *result = [NSMutableSet new];
+	if (figure.type == VDFigureTypePawn)
+	{
+//		NSSet *beatsFields = ((VDPawn *)figure).beatFields;
+//		for (NSString *fieldStr in beatsFields)
+//		{
+//			
+//			//beat on a passage
+//			//TODO: Implement beat on a passage
+//		}
+	}
+	else if (figure.type == VDFigureTypeKing)
+	{
+		//castle, long castle
+		//TODO: Implement castling
+	}
 	return result;
 }
 
@@ -270,6 +331,7 @@ static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotifica
 	
 	VDFigure *fig = move.figure;
 	fig.field = move.from;
+	fig.moved = move.figWasMoved;
 	if (flag)
 	{
 		NSDictionary *userInfo = @{VDBoardFigureKey : fig, VDBoardFieldKey : NSStringFromField(move.to)};

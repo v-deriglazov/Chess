@@ -9,6 +9,7 @@
 #import "VDMove.h"
 
 #import "VDFigure.h"
+#import "VDBoard.h"
 
 /*
  @class VDBoard, VDFigure;
@@ -40,18 +41,48 @@
 + (id)moveOnBoard:(VDBoard *)board figure:(VDFigure *)figure toField:(VDField)field
 {
 	VDMove *move = [VDMove new];
+	
+	move.board = board;
+	move.figure = figure;
+	move.from = figure.field;
+	move.to = field;
+	move.figWasMoved = figure.moved;
+	
+	VDFigure *killedFig = [board figureOnField:field];
+	move.killedFigure = killedFig;
+	
+	//TODO: handle pawn on 8/1 row
+	
+//	move.appearedFigure
+	
 	return move;
 }
 
 + (id)castleOnBoard:(VDBoard *)board
 {
 	VDMove *move = [VDMove new];
+	
+	VDFigure *king = (VDFigure *)[board kingForColor:board.moveOrder];
+	move.board = board;
+	move.figure = king;
+	move.from = king.field;
+	move.to = VDFieldFromString(board.moveOrder == VDColorWhite ? @"g1" :  @"g8");
+	move.castle = YES;
+	
 	return move;
 }
 
 + (id)longCastleOnBoard:(VDBoard *)board
 {
 	VDMove *move = [VDMove new];
+	
+	VDFigure *king = (VDFigure *)[board kingForColor:board.moveOrder];
+	move.board = board;
+	move.figure = king;
+	move.from = king.field;
+	move.to = VDFieldFromString(board.moveOrder == VDColorWhite ? @"c1" :  @"c8");
+	move.longCastle = YES;
+	
 	return move;
 }
 
