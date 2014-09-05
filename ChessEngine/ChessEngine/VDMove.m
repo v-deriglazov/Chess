@@ -49,6 +49,12 @@
 	move.figWasMoved = figure.moved;
 	
 	VDFigure *killedFig = [board figureOnField:field];
+	//beat on a passage!
+	if (killedFig == nil && figure.type == VDFigureTypePawn && move.from.column != move.to.column)
+	{
+		killedFig = [board figureOnField:VDFieldMake(move.from.row, move.to.column)];
+		NSAssert(killedFig != nil && killedFig.color != figure.color, @"Beat on a passage incorrect");
+	}
 	move.killedFigure = killedFig;
 	
 	//TODO: handle pawn on 8/1 row

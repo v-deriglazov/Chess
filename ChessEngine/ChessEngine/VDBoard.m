@@ -38,9 +38,8 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	NSMutableArray *_blackFigures;
 }
 
-//@property (nonatomic, strong) NSMutableArray *whiteFigures;
-//@property (nonatomic, strong) NSMutableArray *blackFigures;
 @property (nonatomic) VDColor moveOrder;
+@property (nonatomic, strong) VDMove *temporaryMove;
 
 @property (nonatomic, strong) NSMutableDictionary *options;
 
@@ -193,7 +192,8 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 		{
 			VDMove *move = [VDMove moveOnBoard:self figure:figure toField:field];
 			[self makeMove:move notify:NO];
-
+			self.temporaryMove = move;
+			
 			VDField kingField = [self kingForColor:currentMoveOrder].field;
 
 			NSArray *enemyFigures = [self figuresForColor:self.moveOrder];
@@ -208,6 +208,7 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 			}
 			
 			[self undoMove:move notify:NO];
+			self.temporaryMove = nil;
 			
 			if (canBeatKing)
 				break;
@@ -224,18 +225,37 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	NSMutableSet *result = [NSMutableSet new];
 	if (figure.type == VDFigureTypePawn)
 	{
-//		NSSet *beatsFields = ((VDPawn *)figure).beatFields;
-//		for (NSString *fieldStr in beatsFields)
-//		{
-//			
-//			//beat on a passage
-//			//TODO: Implement beat on a passage
-//		}
+		VDField figureField = figure.field;
+		VDMove *lastMove = self.temporaryMove ?: [self.delegate lastMoveForBoard:self];
+		if (lastMove.figure.type == VDFigureTypePawn)
+		{
+			VDField from = lastMove.from;
+			VDField to = lastMove.to;
+			int rowDiff = (int)from.row - (int)to.row;
+			int colDiff = (int)to.column - (int)figureField.column;
+			if (fabs(rowDiff) == 2 && to.row == figureField.row && fabs(colDiff) == 1)
+			{
+				VDField moveToField = VDFieldMake(to.row + ((int)from.row - (int)to.row) / 2, to.column);
+				NSString *moveToFieldStr = NSStringFromField(moveToField);
+				NSAssert([((VDPawn *)figure).beatFields containsObject:moveToFieldStr], @"");
+				[result addObject:moveToFieldStr];
+			}
+		}
 	}
-	else if (figure.type == VDFigureTypeKing)
+	else if (figure.type == VDFigureTypeKing && !figure.moved)
 	{
+//		do
+//		{
+//			VDFigure *rook = [self figureOnField:VDFieldFromString(@"h1")];//or H8!!!!
+//			if (rook.type != VDFigureTypeRook || rook.color != figure.color || rook.moved)
+//				break;
+//			
+//			VDField field = VDFieldFromString(@"g1");
+//			[result addObject:NSStringFromField(field)];
+//		} while (NO);
 		//castle, long castle
 		//TODO: Implement castling
+		
 	}
 	return result;
 }
@@ -293,6 +313,7 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	if (flag)
 	{
+		[self.delegate move:move didCompleteOnBoard:self];
 		[defaultCenter postNotificationName:VDBoardMoveDidCompleteNotification object:self userInfo:nil];
 	}
 }
@@ -352,6 +373,7 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	if (flag)
 	{
+		[self.delegate move:move didUndoOnBoard:self];
 		[defaultCenter postNotificationName:VDBoardMoveDidCompleteNotification object:self userInfo:nil];
 	}
 }

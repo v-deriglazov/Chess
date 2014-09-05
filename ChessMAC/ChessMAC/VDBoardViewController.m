@@ -108,7 +108,7 @@
 
 - (VDFigureView *)viewForFigure:(VDFigure *)fig
 {
-	if (![self.board.whiteFigures containsObject:fig] && ![self.board.blackFigures containsObject:fig])
+	if (fig == nil)
 		return nil;
 	
 	__block VDFigureView *result = nil;
@@ -121,7 +121,7 @@
 		}
 	}];
 	
-	NSAssert(result != nil, @"Cannot find figureview for figure on board");
+//	NSAssert(result != nil, @"Cannot find figureview for figure on board");
 	return result;
 }
 

@@ -50,6 +50,16 @@
 	return result;
 }
 
+- (NSUInteger)moveCount
+{
+	return self.moves.count;
+}
+
+- (VDMove *)moveAtIndex:(NSUInteger)index
+{
+	return self.moves[index];
+}
+
 - (void)addMove:(VDMove *)move
 {
 	if (move)

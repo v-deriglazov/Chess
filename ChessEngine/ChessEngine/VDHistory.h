@@ -15,6 +15,9 @@
 - (NSUInteger)fullMoveCount; // white and black move
 - (NSString *)fullMoveRepAtIndex:(NSUInteger)index;
 
+- (NSUInteger)moveCount;
+- (VDMove *)moveAtIndex:(NSUInteger)index;
+
 - (void)addMove:(VDMove *)move;
 - (void)removeLastMove;
 
