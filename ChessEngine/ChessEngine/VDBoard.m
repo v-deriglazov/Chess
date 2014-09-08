@@ -39,7 +39,6 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 }
 
 @property (nonatomic) VDColor moveOrder;
-@property (nonatomic, strong) VDMove *temporaryMove;
 
 @property (nonatomic, strong) NSMutableDictionary *options;
 
@@ -133,7 +132,15 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 
 		NSMutableSet *figures = [NSMutableSet setWithArray:self.whiteFigures];
 		[figures addObjectsFromArray:self.blackFigures];
-		NSSet *rawResult = [figure rawPossibleMovesWithFigures:figures];
+		NSMutableSet *rawResult = [[figure rawPossibleMovesWithFigures:figures] mutableCopy];
+		if (figure.type == VDFigureTypeKing)
+		{
+			[result unionSet:[self additionalPossibleMovesForFigure:figure]];
+		}
+		else
+		{
+			[rawResult unionSet:[self additionalPossibleMovesForFigure:figure]];
+		}
 		for (NSString *fieldStr in rawResult)
 		{
 			if ([self canMoveFigure:figure toField:VDFieldFromString(fieldStr)])
@@ -141,15 +148,6 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 				[result addObject:fieldStr];
 			}
 		}
-		
-		[result unionSet:[self additionalPossibleMovesForFigure:figure]];
-//		for (NSString *fieldStr in rawResult)
-//		{
-//			if ([self canMoveFigure:figure toField:VDFieldFromString(fieldStr)])
-//			{
-//				[result addObject:fieldStr];
-//			}
-//		}
 	} while (NO);
 
 	return result;
@@ -180,35 +178,28 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 		NSMutableSet *allFigures = [NSMutableSet setWithArray:self.whiteFigures];
 		[allFigures addObjectsFromArray:self.blackFigures];
 		NSSet *rawPossibleMoves = [figure rawPossibleMovesWithFigures:allFigures];
-		
 		NSSet *additionalPossibleMoves = [self additionalPossibleMovesForFigure:figure];
 		NSString *fieldStr = NSStringFromField(field);
 		if (![rawPossibleMoves containsObject:fieldStr] && ![additionalPossibleMoves containsObject:fieldStr])
 			break;
 		
-#warning Check field accessibility (lines, diagonals, pawn...)
-		
-		if (checkKing)
+		if (checkKing && !(figure.type == VDFigureTypeKing && [additionalPossibleMoves containsObject:fieldStr]))
 		{
-			VDMove *move = [VDMove moveOnBoard:self figure:figure toField:field];
-			[self makeMove:move notify:NO];
-			self.temporaryMove = move;
+			VDField prevField = figure.field;
+			BOOL wasMoved = figure.moved;
+			figure.field = field;
 			
-			VDField kingField = [self kingForColor:currentMoveOrder].field;
-
-			NSArray *enemyFigures = [self figuresForColor:self.moveOrder];
-			BOOL canBeatKing = NO;
-			for (VDFigure *enemyFigure in enemyFigures)
-			{
-				canBeatKing = [self canMoveFigure:enemyFigure toField:kingField checkOwnKing:NO];
-				if (canBeatKing)
-				{
-					break;
-				}
-			}
+			NSMutableArray *enemyFigures = [self figuresForColor:figOnField.color];
+			if (figOnField != nil)
+				[enemyFigures removeObject:figOnField];
 			
-			[self undoMove:move notify:NO];
-			self.temporaryMove = nil;
+			BOOL canBeatKing = [self attackedKingWithColor:self.moveOrder];
+			
+			figure.field = prevField;
+			figure.moved = wasMoved;
+			
+			if (figOnField != nil)
+				[enemyFigures addObject:figOnField];
 			
 			if (canBeatKing)
 				break;
@@ -220,13 +211,35 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	return result;
 }
 
+- (BOOL)attackedKingWithColor:(VDColor)kingColor
+{
+	BOOL canBeatKing = NO;
+	
+	NSMutableSet *allFigures = [NSMutableSet setWithArray:self.whiteFigures];
+	[allFigures addObjectsFromArray:self.blackFigures];
+	
+	NSString *kingFieldStr = NSStringFromField([self kingForColor:kingColor].field);
+	VDColor enemyColor = (kingColor == VDColorWhite) ? VDColorBlack : VDColorWhite;
+	NSArray *enemyFigures = [self figuresForColor:enemyColor];
+	for (VDFigure *enemyFigure in enemyFigures)
+	{
+		if ([[enemyFigure rawPossibleMovesWithFigures:allFigures] containsObject:kingFieldStr])
+		{
+			canBeatKing = YES;
+			break;
+		}
+	}
+	return canBeatKing;
+}
+
 - (NSSet *)additionalPossibleMovesForFigure:(VDFigure *)figure
 {
 	NSMutableSet *result = [NSMutableSet new];
+	VDMove *lastMove = [self.delegate lastMoveForBoard:self];
+	
 	if (figure.type == VDFigureTypePawn)
 	{
 		VDField figureField = figure.field;
-		VDMove *lastMove = self.temporaryMove ?: [self.delegate lastMoveForBoard:self];
 		if (lastMove.figure.type == VDFigureTypePawn)
 		{
 			VDField from = lastMove.from;
@@ -235,27 +248,96 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 			int colDiff = (int)to.column - (int)figureField.column;
 			if (fabs(rowDiff) == 2 && to.row == figureField.row && fabs(colDiff) == 1)
 			{
-				VDField moveToField = VDFieldMake(to.row + ((int)from.row - (int)to.row) / 2, to.column);
+				VDField moveToField = VDFieldMake(to.row + rowDiff / 2, to.column);
 				NSString *moveToFieldStr = NSStringFromField(moveToField);
-				NSAssert([((VDPawn *)figure).beatFields containsObject:moveToFieldStr], @"");
+				NSAssert([((VDPawn *)figure).beatFields containsObject:moveToFieldStr], @"Broken logic for pawns' beat on a passage");
 				[result addObject:moveToFieldStr];
 			}
 		}
 	}
-	else if (figure.type == VDFigureTypeKing && !figure.moved)
+	else if (figure.type == VDFigureTypeKing && !figure.moved && !lastMove.check)
 	{
-//		do
-//		{
-//			VDFigure *rook = [self figureOnField:VDFieldFromString(@"h1")];//or H8!!!!
-//			if (rook.type != VDFigureTypeRook || rook.color != figure.color || rook.moved)
-//				break;
-//			
-//			VDField field = VDFieldFromString(@"g1");
-//			[result addObject:NSStringFromField(field)];
-//		} while (NO);
-		//castle, long castle
-		//TODO: Implement castling
+		NSUInteger row = (figure.color == VDColorWhite) ? 0 : kVDBoardSize - 1;
 		
+		NSMutableSet *allFigures = [NSMutableSet setWithArray:self.whiteFigures];
+		[allFigures addObjectsFromArray:self.blackFigures];
+		NSArray *enemyFigures = [self figuresForColor:figure.color == VDColorWhite ? VDColorBlack : VDColorWhite];
+
+		//castling
+		do
+		{
+			VDField rookField = VDFieldMake(row, kVDBoardSize - 1); //h1 or h8
+			VDFigure *rook = [self figureOnField:rookField];
+			if (rook.type != VDFigureTypeRook || rook.color != figure.color || rook.moved)
+				break;
+			
+			VDField moveToField = VDFieldMake(row, rookField.column - 1); // g1/g8
+			if ([self figureOnField:moveToField] != nil)
+				break;
+						
+			VDField emptyField = VDFieldMake(row, rookField.column - 2); // f1/f8
+			if ([self figureOnField:emptyField] != nil)
+				break;
+			
+			BOOL fieldUnderAttack = NO;
+			NSString *moveToFieldStr = NSStringFromField(moveToField);
+			NSSet *fieldsToCheck = [NSSet setWithObjects:moveToFieldStr, NSStringFromField(emptyField), nil];
+			for (VDFigure *enemyFig in enemyFigures)
+			{
+				NSSet *rawPossibleMoves = [enemyFig rawPossibleMovesWithFigures:allFigures];
+				if ([rawPossibleMoves intersectsSet:fieldsToCheck])
+				{
+					fieldUnderAttack = YES;
+					break;
+				}
+			}
+			
+			if (fieldUnderAttack)
+				break;
+			
+			[result addObject:moveToFieldStr];
+		} while (NO);
+		
+		//long castling
+		do
+		{
+			VDField rookField = VDFieldMake(row, 0); //a1 or a8
+			VDFigure *rook = [self figureOnField:rookField];
+			if (rook.type != VDFigureTypeRook || rook.color != figure.color || rook.moved)
+				break;
+			
+			VDField emptyField = VDFieldMake(row, rookField.column + 1); // b1/b8
+			if ([self figureOnField:emptyField] != nil)
+				break;
+						
+			VDField moveToField = VDFieldMake(row, rookField.column + 2); // c1/c8
+			if ([self figureOnField:moveToField] != nil)
+				break;
+			
+			NSString *emptyFieldStr = NSStringFromField(emptyField);
+			NSString *moveToFieldStr = NSStringFromField(moveToField);
+			
+			emptyField = VDFieldMake(row, rookField.column + 3); // d1/d8
+			if ([self figureOnField:emptyField] != nil)
+				break;
+			
+			BOOL fieldUnderAttack = NO;
+			NSSet *fieldsToCheck = [NSSet setWithObjects:moveToFieldStr, emptyFieldStr, NSStringFromField(emptyField), nil];
+			for (VDFigure *enemyFig in enemyFigures)
+			{
+				NSSet *rawPossibleMoves = [enemyFig rawPossibleMovesWithFigures:allFigures];
+				if ([rawPossibleMoves intersectsSet:fieldsToCheck])
+				{
+					fieldUnderAttack = YES;
+					break;
+				}
+			}
+			
+			if (fieldUnderAttack)
+				break;
+			
+			[result addObject:NSStringFromField(moveToField)];
+		} while (NO);
 	}
 	return result;
 }
@@ -275,12 +357,27 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	if (move.longCastle)
 	{
-		//TODO: implement longCastle
+		NSUInteger row = move.to.row;
+		VDField rookField = VDFieldMake(row, 0);
+		VDFigure *rook = [self figureOnField:rookField];
+		rook.field = VDFieldMake(row, 3);
+		if (flag)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : rook, VDBoardFieldKey : NSStringFromField(rookField)};
+			[defaultCenter postNotificationName:VDBoardFigureDidMoveNotification object:self userInfo:userInfo];
+		}
 	}
-	
-	if (move.castle)
+	else if (move.castle)
 	{
-		//TODO: implement castle
+		NSUInteger row = move.to.row;
+		VDField rookField = VDFieldMake(row, kVDBoardSize - 1);
+		VDFigure *rook = [self figureOnField:rookField];
+		rook.field = VDFieldMake(row, kVDBoardSize - 3);
+		if (flag)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : rook, VDBoardFieldKey : NSStringFromField(rookField)};
+			[defaultCenter postNotificationName:VDBoardFigureDidMoveNotification object:self userInfo:userInfo];
+		}
 	}
 	
 	VDFigure *killedFig = move.killedFigure;
@@ -311,10 +408,42 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	self.moveOrder = (self.moveOrder == VDColorWhite) ? VDColorBlack : VDColorWhite;
 	
+	if ([self attackedKingWithColor:self.moveOrder])
+	{
+		move.check = YES;
+		
+		//TODO: Check mate
+//		move.checkMate = YES;
+//		NSArray *figs = [self figuresForColor:self.moveOrder];
+//		for (VDFigure *fig in figs)
+//		{
+//			NSSet *rawMoves = [fig rawPossibleMovesWithFigures:];
+//			if (rawMoves.count > 0)
+//			{
+//				move.checkMate = NO;
+//				break;
+//			}
+//		}
+//		//check pawn on a passage move!!!!
+	}
+	
 	if (flag)
 	{
 		[self.delegate move:move didCompleteOnBoard:self];
+		
 		[defaultCenter postNotificationName:VDBoardMoveDidCompleteNotification object:self userInfo:nil];
+		
+		
+		if (move.checkMate)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : [self kingForColor:self.moveOrder]};
+			[defaultCenter postNotificationName:VDBoardCheckMateNotification object:self userInfo:userInfo];
+		}
+		else if (move.check)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : [self kingForColor:self.moveOrder]};
+			[defaultCenter postNotificationName:VDBoardCheckNotification object:self userInfo:userInfo];
+		}
 	}
 }
 
@@ -361,12 +490,27 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	if (move.longCastle)
 	{
-		//TODO: implement longCastle
+		NSUInteger row = move.to.row;
+		VDField rookField = VDFieldMake(row, 3);
+		VDFigure *rook = [self figureOnField:rookField];
+		rook.field = VDFieldMake(row, 0);
+		if (flag)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : rook, VDBoardFieldKey : NSStringFromField(rookField)};
+			[defaultCenter postNotificationName:VDBoardFigureDidMoveNotification object:self userInfo:userInfo];
+		}
 	}
-	
-	if (move.castle)
+	else if (move.castle)
 	{
-		//TODO: implement castle
+		NSUInteger row = move.to.row;
+		VDField rookField = VDFieldMake(row, kVDBoardSize - 3);
+		VDFigure *rook = [self figureOnField:rookField];
+		rook.field = VDFieldMake(row, kVDBoardSize - 1);
+		if (flag)
+		{
+			NSDictionary *userInfo = @{VDBoardFigureKey : rook, VDBoardFieldKey : NSStringFromField(rookField)};
+			[defaultCenter postNotificationName:VDBoardFigureDidMoveNotification object:self userInfo:userInfo];
+		}
 	}
 	
 	self.moveOrder = (self.moveOrder == VDColorWhite) ? VDColorBlack : VDColorWhite;
@@ -374,7 +518,14 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	if (flag)
 	{
 		[self.delegate move:move didUndoOnBoard:self];
+		
 		[defaultCenter postNotificationName:VDBoardMoveDidCompleteNotification object:self userInfo:nil];
+		
+		VDMove *prevMove = [self.delegate lastMoveForBoard:self];
+		if (prevMove.check)
+		{
+			[defaultCenter postNotificationName:VDBoardCheckNotification object:self userInfo:nil];
+		}
 	}
 }
 
@@ -385,19 +536,10 @@ NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
 	
 	VDMove *move = [VDMove moveOnBoard:self figure:figure toField:field];
 	[self makeMove:move notify:YES];
-	
-	/*
-	 static NSString *const VDBoardFigureDidMoveNotification = @"VDBoardFigureDidMoveNotification";
-	 static NSString *const VDBoardFigureDidDownNotification = @"VDBoardFigureDidDownNotification";
-	 static NSString *const VDBoardFigureDidAppearNotification = @"VDBoardFigureDidAppearNotification";
-	 static NSString *const VDBoardMoveDidCompleteNotification = @"VDBoardMoveDidCompleteNotification";
-	 static NSString *const VDBoardCheckedNotification = @"VDBoardCheckedNotification";
-	 static NSString *const VDBoardCheckMateNotification = @"VDBoardCheckMateNotification";
-	 */
 
 	if (flag != NULL)
 	{
-		flag = NO;
+		*flag = move.check;
 	}
 }
 

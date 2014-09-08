@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VDGameWindowController">
             <connections>
+                <outlet property="annotationView" destination="ac3-Se-eHM" id="E0m-XH-93h"/>
                 <outlet property="boardView" destination="6kU-uU-x5I" id="kvj-Pw-Lho"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -27,8 +28,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </customView>
                     <customView id="ac3-Se-eHM">
-                        <rect key="frame" x="451" y="121" width="163" height="311"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="451" y="121" width="160" height="311"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     </customView>
                 </subviews>
             </view>

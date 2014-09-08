@@ -15,8 +15,6 @@
 @interface VDMove : NSObject
 
 + (id)moveOnBoard:(VDBoard *)board figure:(VDFigure *)figure toField:(VDField)field;
-+ (id)castleOnBoard:(VDBoard *)board;
-+ (id)longCastleOnBoard:(VDBoard *)board;
 
 @property (nonatomic, weak) VDBoard *board;
 @property (nonatomic, weak) VDFigure *figure;

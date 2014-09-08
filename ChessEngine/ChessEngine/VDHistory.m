@@ -10,6 +10,8 @@
 
 #import "VDMove.h"
 
+NSString *const VDHistoryUpdateNotification = @"VDHistoryUpdateNotification";
+
 @interface VDHistory ()
 @property (nonatomic, strong) NSMutableArray *moves;
 @end
@@ -57,7 +59,11 @@
 
 - (VDMove *)moveAtIndex:(NSUInteger)index
 {
-	return self.moves[index];
+	if (index < self.moves.count)
+	{
+		return self.moves[index];
+	}
+	return nil;
 }
 
 - (void)addMove:(VDMove *)move
@@ -65,7 +71,8 @@
 	if (move)
 	{
 		[self.moves addObject:move];
-		//TODO: post notification? some asserts?
+		//TODO: some asserts?
+		[[NSNotificationCenter defaultCenter] postNotificationName:VDHistoryUpdateNotification object:self userInfo:nil];
 	}
 }
 
@@ -74,7 +81,8 @@
 	if (self.moves.count)
 	{
 		[self.moves removeLastObject];
-		//TODO: post notification? some asserts?
+		//TODO: some asserts?
+		[[NSNotificationCenter defaultCenter] postNotificationName:VDHistoryUpdateNotification object:self userInfo:nil];
 	}
 }
 

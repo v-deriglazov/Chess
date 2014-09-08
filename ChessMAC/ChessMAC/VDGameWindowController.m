@@ -9,13 +9,17 @@
 #import "VDGameWindowController.h"
 #import "ChessEngine/VDGame.h"
 #import "VDBoardViewController.h"
+#import "VDAnnotationViewController.h"
 
 @interface VDGameWindowController ()
 
 @property (nonatomic, strong) VDGame *game;
 
 @property (nonatomic, strong) VDBoardViewController *boardController;
+@property (nonatomic, strong) VDAnnotationViewController *annotationController;
+
 @property (nonatomic, weak) IBOutlet NSView *boardView;
+@property (nonatomic, weak) IBOutlet NSView *annotationView;
 
 @end
 
@@ -40,6 +44,7 @@
 {
     [super windowDidLoad];
     [self boardController];
+	[self annotationController];
 }
 
 - (VDBoardViewController *)boardController
@@ -55,4 +60,16 @@
 	return _boardController;
 }
 
+- (VDAnnotationViewController *)annotationController
+{
+	if (_annotationController == nil)
+	{
+		_annotationController = [VDAnnotationViewController new];
+		_annotationController.history = self.game.history;
+		_annotationController.view.frame = self.annotationView.bounds;
+		_annotationController.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+		[self.annotationView addSubview:_annotationController.view];
+	}
+	return _annotationController;
+}
 @end

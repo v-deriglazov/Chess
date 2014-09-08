@@ -25,6 +25,7 @@
 		D124DEF319B47347000CCCCD /* VDAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF219B47347000CCCCD /* VDAnnotationView.m */; };
 		D124DEF619B47660000CCCCD /* VDBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF519B47660000CCCCD /* VDBoardViewController.m */; };
 		D124DEF919B47825000CCCCD /* VDFigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D124DEF819B47825000CCCCD /* VDFigureView.m */; };
+		D163D16519BDC720009A5D0E /* VDAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D163D16419BDC720009A5D0E /* VDAnnotationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		D124DEF519B47660000CCCCD /* VDBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDBoardViewController.m; sourceTree = "<group>"; };
 		D124DEF719B47825000CCCCD /* VDFigureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDFigureView.h; sourceTree = "<group>"; };
 		D124DEF819B47825000CCCCD /* VDFigureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDFigureView.m; sourceTree = "<group>"; };
+		D163D16319BDC720009A5D0E /* VDAnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDAnnotationViewController.h; sourceTree = "<group>"; };
+		D163D16419BDC720009A5D0E /* VDAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDAnnotationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 				D124DEEA19B47205000CCCCD /* VDGameWindowController.m */,
 				D124DEF419B47660000CCCCD /* VDBoardViewController.h */,
 				D124DEF519B47660000CCCCD /* VDBoardViewController.m */,
+				D163D16319BDC720009A5D0E /* VDAnnotationViewController.h */,
+				D163D16419BDC720009A5D0E /* VDAnnotationViewController.m */,
 				D124DEEB19B47205000CCCCD /* VDGameWindowController.xib */,
 				D124DEB319B467AD000CCCCD /* MainMenu.xib */,
 				D124DEB619B467AD000CCCCD /* Images.xcassets */,
@@ -345,6 +350,7 @@
 				D124DEF319B47347000CCCCD /* VDAnnotationView.m in Sources */,
 				D124DEEC19B47205000CCCCD /* VDGameWindowController.m in Sources */,
 				D124DEF919B47825000CCCCD /* VDFigureView.m in Sources */,
+				D163D16519BDC720009A5D0E /* VDAnnotationViewController.m in Sources */,
 				D124DEF019B47330000CCCCD /* VDBoardView.m in Sources */,
 				D124DEF619B47660000CCCCD /* VDBoardViewController.m in Sources */,
 				D124DEAF19B467AD000CCCCD /* VDDocument.m in Sources */,

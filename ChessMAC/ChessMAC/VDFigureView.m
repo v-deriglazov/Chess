@@ -19,6 +19,11 @@
 		[[NSColor blueColor] setFill];
 		NSRectFill(self.bounds);
 	}
+	else if (self.attacked)
+	{
+		[[NSColor redColor] setFill];
+		NSRectFill(self.bounds);
+	}
 	
 	char *figure = NULL;
 	switch (self.figure.type)

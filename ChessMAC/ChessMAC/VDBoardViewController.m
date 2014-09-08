@@ -19,6 +19,7 @@
 
 @property (nonatomic, weak) VDFigure *selectedFigure;
 @property (nonatomic, strong) NSSet *possibleMoves;
+@property (nonatomic, weak) VDFigureView *atackedFigureView;
 
 @end
 
@@ -179,10 +180,17 @@
 {
 	NSLog(@"moveDidCompleteOnBoard");
 	self.selectedFigure = nil;
+	self.atackedFigureView.attacked = NO;
+	self.atackedFigureView = nil;
 }
 
 - (void)checkOnBoard:(NSNotification *)notification
 {
+	VDFigure *fig = notification.userInfo[VDBoardFigureKey];
+	VDFigureView *view = [self viewForFigure:fig];
+	view.attacked = YES;
+	self.atackedFigureView = view;
+	
 	NSAlert *alert = [NSAlert alertWithMessageText:@"Check" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Do something"];
 	[alert runModal];
 }

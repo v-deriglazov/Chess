@@ -10,6 +10,8 @@
 
 @class VDMove;
 
+extern NSString *const VDHistoryUpdateNotification;
+
 @interface VDHistory : NSObject
 
 - (NSUInteger)fullMoveCount; // white and black move
